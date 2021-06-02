@@ -24,7 +24,6 @@ const SearchByDistrict = () => {
     axios
       .get(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/26`)
       .then((res) => {
-        console.log(res);
         setDistricts(res.data.districts);
       })
       .catch((err) => {
@@ -55,7 +54,12 @@ const SearchByDistrict = () => {
       </button>
       <ul>
         {centers.map((center) => (
-          <li key={center.center_id}>{center.name}</li>
+          <li key={center.center_id}>{center.name} | 
+            Capacity: {center.sessions[0].available_capacity} |
+            D1: {center.sessions[0].available_capacity_dose1} |
+            D2: {center.sessions[0].available_capacity_dose2} |
+            Age: {center.sessions[0].min_age_limit}
+          </li>
         ))}
       </ul>
     </div>
