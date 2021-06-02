@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Table } from "react-bootstrap";
+import { Table, Badge } from "react-bootstrap";
 
 const SearchByDistrict = () => {
   const [centers, setCenters] = useState([]);
@@ -10,7 +10,7 @@ const SearchByDistrict = () => {
   useEffect(() => {
     axios
       .get(
-        `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${distId}&date=02-06-2021`
+        `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${distId}&date=03-06-2021`
       )
       .then((res) => {
         setCenters(res.data.centers);
@@ -26,6 +26,8 @@ const SearchByDistrict = () => {
 
   return (
     <>
+      <br />
+      <br />
       <input
         type="number"
         value={distId}
@@ -34,37 +36,6 @@ const SearchByDistrict = () => {
       <button type="button" onClick={btnClickHandler}>
         OK
       </button>
-      <h1>45+</h1>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Center Name</th>
-            <th>Address</th>
-            <th>From - To</th>
-            <th>Vaccine</th>
-            <th>Dose 1</th>
-            <th>Dose 2</th>
-          </tr>
-        </thead>
-        <tbody>
-          {centers.map((center) =>
-             center.sessions[0].available_capacity && center.sessions[0].min_age_limit === 45 ? (
-              <tr>
-                <td>{center.name} ~ {center.sessions[0].min_age_limit}</td>
-                <td>{center.address}</td>
-                <td>
-                  {center.from} - {center.to}
-                </td>
-                <td>{center.sessions[0].vaccine}</td>
-                <td>{center.sessions[0].available_capacity_dose1}</td>
-                <td>{center.sessions[0].available_capacity_dose2}</td>
-              </tr>
-            ) : (
-              ""
-            )
-          )}
-        </tbody>
-      </Table>
       <h1>18+</h1>
       <Table striped bordered hover>
         <thead>
@@ -79,9 +50,46 @@ const SearchByDistrict = () => {
         </thead>
         <tbody>
           {centers.map((center) =>
-             center.sessions[0].available_capacity && center.sessions[0].min_age_limit === 18 ? (
+            center.sessions[0].available_capacity &&
+            center.sessions[0].min_age_limit === 18 ? (
               <tr>
-                <td>{center.name} ~ {center.sessions[0].min_age_limit}</td>
+                <td>
+                {center.name} {center.fee_type === "Paid" ? <Badge variant="danger">{center.fee_type}</Badge> : ""}
+                </td>
+                <td>{center.address}</td>
+                <td>
+                  {center.from} - {center.to}
+                </td>
+                <td>{center.sessions[0].vaccine}</td>
+                <td>{center.sessions[0].available_capacity_dose1}</td>
+                <td>{center.sessions[0].available_capacity_dose2}</td>
+              </tr>
+            ) : (
+              ""
+            )
+          )}
+        </tbody>
+      </Table>
+      <h1>45+</h1>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Center Name</th>
+            <th>Address</th>
+            <th>From - To</th>
+            <th>Vaccine</th>
+            <th>Dose 1</th>
+            <th>Dose 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          {centers.map((center) =>
+            center.sessions[0].available_capacity &&
+            center.sessions[0].min_age_limit === 45 ? (
+              <tr>
+                <td>
+                {center.name} {center.fee_type === "Paid" ? <Badge variant="danger">{center.fee_type}</Badge> : ""}
+                </td>
                 <td>{center.address}</td>
                 <td>
                   {center.from} - {center.to}
