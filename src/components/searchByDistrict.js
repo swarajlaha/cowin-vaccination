@@ -34,6 +34,7 @@ const SearchByDistrict = () => {
       <button type="button" onClick={btnClickHandler}>
         OK
       </button>
+      <h1>45+</h1>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -41,21 +42,58 @@ const SearchByDistrict = () => {
             <th>Address</th>
             <th>From - To</th>
             <th>Vaccine</th>
-            <th>Availabe Dose 1</th>
-            <th>Availabe Dose 2</th>
+            <th>Dose 1</th>
+            <th>Dose 2</th>
           </tr>
         </thead>
         <tbody>
-          {centers.map((center) => (
-            <tr>
-              <td>{center.name}</td>
-              <td>{center.address}</td>
-              <td>{center.from} - {center.to}</td>
-              <td>{center.sessions[0].vaccine}</td>
-              <td>{center.sessions[0].available_capacity_dose1}</td>
-              <td>{center.sessions[0].available_capacity_dose2}</td>
-            </tr>
-          ))}
+          {centers.map((center) =>
+             center.sessions[0].available_capacity && center.sessions[0].min_age_limit === 45 ? (
+              <tr>
+                <td>{center.name} ~ {center.sessions[0].min_age_limit}</td>
+                <td>{center.address}</td>
+                <td>
+                  {center.from} - {center.to}
+                </td>
+                <td>{center.sessions[0].vaccine}</td>
+                <td>{center.sessions[0].available_capacity_dose1}</td>
+                <td>{center.sessions[0].available_capacity_dose2}</td>
+              </tr>
+            ) : (
+              ""
+            )
+          )}
+        </tbody>
+      </Table>
+      <h1>18+</h1>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Center Name</th>
+            <th>Address</th>
+            <th>From - To</th>
+            <th>Vaccine</th>
+            <th>Dose 1</th>
+            <th>Dose 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          {centers.map((center) =>
+             center.sessions[0].available_capacity && center.sessions[0].min_age_limit === 18 ? (
+              <tr>
+                <td>{center.name} ~ {center.sessions[0].min_age_limit}</td>
+                <td>{center.address}</td>
+                <td>
+                  {center.from} - {center.to}
+                </td>
+                <td>{center.sessions[0].vaccine}</td>
+                <td>{center.sessions[0].available_capacity_dose1}</td>
+                <td>{center.sessions[0].available_capacity_dose2}</td>
+              </tr>
+            ) : (
+              ""
+            )
+          )}
         </tbody>
       </Table>
     </>
