@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Table, Badge } from "react-bootstrap";
 
 const SearchByDistrict = () => {
   const [centers, setCenters] = useState([]);
   const [distId, setDistId] = useState(446);
-  const [districts, setDistricts] = useState([]);
   const [distIdBtnClick, setDistIdBtnClick] = useState(446);
 
   useEffect(() => {
     axios
       .get(
-        `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${distId}&date=05-06-2021`
+        `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${distId}&date=03-06-2021`
       )
       .then((res) => {
         setCenters(res.data.centers);
@@ -20,30 +20,14 @@ const SearchByDistrict = () => {
       });
   }, [distIdBtnClick]);
 
-  useEffect(() => {
-    axios
-      .get(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/26`)
-      .then((res) => {
-        setDistricts(res.data.districts);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
   const btnClickHandler = () => {
     setDistIdBtnClick(distId);
   };
 
   return (
-    <div>
-      <ul>
-        {districts.map((district) => (
-          <li key={district.district_id}>
-            {district.district_name} - {district.district_id}
-          </li>
-        ))}
-      </ul>
+    <>
+      <br />
+      <br />
       <input
         type="number"
         value={distId}
@@ -52,17 +36,75 @@ const SearchByDistrict = () => {
       <button type="button" onClick={btnClickHandler}>
         OK
       </button>
-      <ul>
-        {centers.map((center) => (
-          <li key={center.center_id}>{center.name} | 
-            Capacity: {center.sessions[0].available_capacity} |
-            D1: {center.sessions[0].available_capacity_dose1} |
-            D2: {center.sessions[0].available_capacity_dose2} |
-            Age: {center.sessions[0].min_age_limit}
-          </li>
-        ))}
-      </ul>
-    </div>
+      <h1>18+</h1>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Center Name</th>
+            <th>Address</th>
+            <th>From - To</th>
+            <th>Vaccine</th>
+            <th>Dose 1</th>
+            <th>Dose 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          {centers.map((center) =>
+            center.sessions[0].available_capacity &&
+            center.sessions[0].min_age_limit === 18 ? (
+              <tr>
+                <td>
+                {center.name} {center.fee_type === "Paid" ? <Badge variant="danger">{center.fee_type}</Badge> : ""}
+                </td>
+                <td>{center.address}</td>
+                <td>
+                  {center.from} - {center.to}
+                </td>
+                <td>{center.sessions[0].vaccine}</td>
+                <td>{center.sessions[0].available_capacity_dose1}</td>
+                <td>{center.sessions[0].available_capacity_dose2}</td>
+              </tr>
+            ) : (
+              ""
+            )
+          )}
+        </tbody>
+      </Table>
+      <h1>45+</h1>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Center Name</th>
+            <th>Address</th>
+            <th>From - To</th>
+            <th>Vaccine</th>
+            <th>Dose 1</th>
+            <th>Dose 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          {centers.map((center) =>
+            center.sessions[0].available_capacity &&
+            center.sessions[0].min_age_limit === 45 ? (
+              <tr>
+                <td>
+                {center.name} {center.fee_type === "Paid" ? <Badge variant="danger">{center.fee_type}</Badge> : ""}
+                </td>
+                <td>{center.address}</td>
+                <td>
+                  {center.from} - {center.to}
+                </td>
+                <td>{center.sessions[0].vaccine}</td>
+                <td>{center.sessions[0].available_capacity_dose1}</td>
+                <td>{center.sessions[0].available_capacity_dose2}</td>
+              </tr>
+            ) : (
+              ""
+            )
+          )}
+        </tbody>
+      </Table>
+    </>
   );
 };
 
