@@ -7,10 +7,16 @@ const SearchByDistrict = () => {
   const [distId, setDistId] = useState(446);
   const [distIdBtnClick, setDistIdBtnClick] = useState(446);
 
+  let today = new Date();
+  let dd = String(today.getDate()).padStart(2, "0");
+  let mm = String(today.getMonth() + 1).padStart(2, "0");
+  var yyyy = today.getFullYear();
+  today = dd + "-" + mm + "-" + yyyy;
+
   useEffect(() => {
     axios
       .get(
-        `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${distId}&date=03-06-2021`
+        `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${distId}&date=${today}`
       )
       .then((res) => {
         setCenters(res.data.centers);
@@ -54,7 +60,12 @@ const SearchByDistrict = () => {
             center.sessions[0].min_age_limit === 18 ? (
               <tr>
                 <td>
-                {center.name} {center.fee_type === "Paid" ? <Badge variant="danger">{center.fee_type}</Badge> : ""}
+                  {center.name}{" "}
+                  {center.fee_type === "Paid" ? (
+                    <Badge variant="danger">{center.fee_type}</Badge>
+                  ) : (
+                    ""
+                  )}
                 </td>
                 <td>{center.address}</td>
                 <td>
@@ -88,7 +99,12 @@ const SearchByDistrict = () => {
             center.sessions[0].min_age_limit === 45 ? (
               <tr>
                 <td>
-                {center.name} {center.fee_type === "Paid" ? <Badge variant="danger">{center.fee_type}</Badge> : ""}
+                  {center.name}{" "}
+                  {center.fee_type === "Paid" ? (
+                    <Badge variant="danger">{center.fee_type}</Badge>
+                  ) : (
+                    ""
+                  )}
                 </td>
                 <td>{center.address}</td>
                 <td>
