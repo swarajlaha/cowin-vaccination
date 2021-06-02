@@ -3,9 +3,6 @@ import axios from "axios";
 import { Table, Badge } from "react-bootstrap";
 
 const SearchByDistrict = () => {
-  const [centers, setCenters] = useState([]);
-  const [distId, setDistId] = useState(446);
-  const [distIdBtnClick, setDistIdBtnClick] = useState(446);
 
   let today = new Date();
   let dd = String(today.getDate()).padStart(2, "0");
@@ -13,21 +10,30 @@ const SearchByDistrict = () => {
   var yyyy = today.getFullYear();
   today = dd + "-" + mm + "-" + yyyy;
 
+  const [centers, setCenters] = useState([]);
+  const [distId, setDistId] = useState(446);
+  const [distIdBtnClick, setDistIdBtnClick] = useState(446);
+  const [date, setDate] = useState(today);
+  const [dateBtnClick, setDateBtnClick] = useState(today);
+
   useEffect(() => {
     axios
       .get(
-        `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${distId}&date=${today}`
+        `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${distId}&date=${date}`
       )
       .then((res) => {
         setCenters(res.data.centers);
+        console.log(res.data.centers)
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [distIdBtnClick]);
+  }, [distIdBtnClick, dateBtnClick]);
 
   const btnClickHandler = () => {
     setDistIdBtnClick(distId);
+    setDateBtnClick(date);
+    console.log(date)
   };
 
   return (
@@ -38,6 +44,11 @@ const SearchByDistrict = () => {
         type="number"
         value={distId}
         onChange={(e) => setDistId(e.target.value)}
+      />
+      <input
+        type="text"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
       />
       <button type="button" onClick={btnClickHandler}>
         OK
