@@ -4,7 +4,7 @@ import { Table, Badge } from "react-bootstrap";
 
 const SearchByDistrict = () => {
   const [centers, setCenters] = useState([]);
-  const [distId, setDistId] = useState();
+  const [distId, setDistId] = useState(446);
   const [distIdBtnClick, setDistIdBtnClick] = useState();
 
   let today = new Date();
@@ -31,6 +31,7 @@ const SearchByDistrict = () => {
   };
 
   let currDate = new Date();
+  let district = centers[0]?.district_name
 
   return (
     <>
@@ -44,7 +45,7 @@ const SearchByDistrict = () => {
       <button type="button" onClick={btnClickHandler}>
         OK
       </button>
-      <h2>District - {centers[0].district_name}</h2>
+      <h2>{district}</h2>
       <Table striped bordered hover>
         <thead>
           <tr>
