@@ -44,6 +44,7 @@ const SearchByDistrict = () => {
       <button type="button" onClick={btnClickHandler}>
         OK
       </button>
+      <h2>District - {centers[0].district_name}</h2>
       <Table striped bordered hover>
         <thead>
           <tr>

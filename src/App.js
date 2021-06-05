@@ -1,4 +1,3 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchByDistrict from './components/searchByDistrict';
 import ShowDistrictCode from './components/showDistrictCode';
