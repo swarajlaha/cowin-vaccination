@@ -44,46 +44,6 @@ const SearchByDistrict = () => {
       <button type="button" onClick={btnClickHandler}>
         OK
       </button>
-      <h1>18+</h1>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Center Name</th>
-            <th>Address</th>
-            <th>From - To</th>
-            <th>Vaccine</th>
-            <th>Dose 1</th>
-            <th>Dose 2</th>
-          </tr>
-        </thead>
-        <tbody>
-          {centers.map((center) =>
-            center.sessions[0].available_capacity &&
-            center.sessions[0].min_age_limit === 18 ? (
-              <tr>
-                <td>
-                  {center.name}{" "}
-                  {center.fee_type === "Paid" ? (
-                    <Badge variant="danger">{center.fee_type}</Badge>
-                  ) : (
-                    ""
-                  )}
-                </td>
-                <td>{center.address}</td>
-                <td>
-                  {center.from} - {center.to}
-                </td>
-                <td>{center.sessions[0].vaccine}</td>
-                <td>{center.sessions[0].available_capacity_dose1}</td>
-                <td>{center.sessions[0].available_capacity_dose2}</td>
-              </tr>
-            ) : (
-              ""
-            )
-          )}
-        </tbody>
-      </Table>
-      <h1>45+</h1>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -139,7 +99,7 @@ const SearchByDistrict = () => {
                   {center.address}
                 </td>
                 <td>
-                  {center.sessions[0]?.vaccine === "COVISHIELD" ? (
+                  {center.sessions[0]?.available_capacity ? (center.sessions[0]?.vaccine === "COVISHIELD" ? (
                     <Badge variant="success">
                       {center.sessions[0]?.vaccine}
                     </Badge>
@@ -147,8 +107,9 @@ const SearchByDistrict = () => {
                     <Badge variant="primary">
                       {center.sessions[0]?.vaccine}
                     </Badge>
-                  )}&nbsp;
-                  {center.sessions[0]?.min_age_limit === 45 ? (
+                  )) : (<Badge variant="secondary">NA</Badge>)}
+                  &nbsp;
+                  {center.sessions[0]?.available_capacity ? (center.sessions[0]?.min_age_limit === 45 ? (
                     <Badge pill variant="info">
                       {center.sessions[0]?.min_age_limit}+
                     </Badge>
@@ -156,14 +117,20 @@ const SearchByDistrict = () => {
                     <Badge pill variant="danger">
                       {center.sessions[0]?.min_age_limit}+
                     </Badge>
+                  )) : ("")}
+                  <br />
+                  {center.sessions[0]?.available_capacity ? (
+                    <>
+                      D1: <b>{center.sessions[0]?.available_capacity_dose1}</b>{" "}
+                      <br />
+                      D2: <b>{center.sessions[0]?.available_capacity_dose2}</b>
+                    </>
+                  ) : (
+                    ""
                   )}
-                  <br />
-                  D1: <b>{center.sessions[0]?.available_capacity_dose1}</b>{" "}
-                  <br />
-                  D2: <b>{center.sessions[0]?.available_capacity_dose2}</b>
                 </td>
                 <td>
-                  {center.sessions[1]?.vaccine === "COVISHIELD" ? (
+                  {center.sessions[1]?.available_capacity ? (center.sessions[1]?.vaccine === "COVISHIELD" ? (
                     <Badge variant="success">
                       {center.sessions[1]?.vaccine}
                     </Badge>
@@ -171,23 +138,30 @@ const SearchByDistrict = () => {
                     <Badge variant="primary">
                       {center.sessions[1]?.vaccine}
                     </Badge>
-                  )}&nbsp;
-                  {center.sessions[1]?.min_age_limit === 45 ? (
+                  )) : (<Badge variant="secondary">NA</Badge>)}
+                  &nbsp;
+                  {center.sessions[1]?.available_capacity ? (center.sessions[1]?.min_age_limit === 45 ? (
                     <Badge pill variant="info">
                       {center.sessions[1]?.min_age_limit}+
                     </Badge>
                   ) : (
                     <Badge pill variant="danger">
-                      {center.sessions[1]?.min_age_limit}
+                      {center.sessions[1]?.min_age_limit}+
                     </Badge>
+                  )) : ("")}
+                  <br />
+                  {center.sessions[1]?.available_capacity ? (
+                    <>
+                      D1: <b>{center.sessions[1]?.available_capacity_dose1}</b>{" "}
+                      <br />
+                      D2: <b>{center.sessions[1]?.available_capacity_dose2}</b>
+                    </>
+                  ) : (
+                    ""
                   )}
-                  <br />
-                  D1: <b>{center.sessions[1]?.available_capacity_dose1}</b>{" "}
-                  <br />
-                  D2: <b>{center.sessions[1]?.available_capacity_dose2}</b>
                 </td>
                 <td>
-                  {center.sessions[2]?.vaccine === "COVISHIELD" ? (
+                  {center.sessions[2]?.available_capacity ? (center.sessions[2]?.vaccine === "COVISHIELD" ? (
                     <Badge variant="success">
                       {center.sessions[2]?.vaccine}
                     </Badge>
@@ -195,23 +169,30 @@ const SearchByDistrict = () => {
                     <Badge variant="primary">
                       {center.sessions[2]?.vaccine}
                     </Badge>
-                  )}&nbsp;
-                  {center.sessions[2]?.min_age_limit === 45 ? (
+                  )) : (<Badge variant="secondary">NA</Badge>)}
+                  &nbsp;
+                  {center.sessions[2]?.available_capacity ?(center.sessions[2]?.min_age_limit === 45 ? (
                     <Badge pill variant="info">
                       {center.sessions[2]?.min_age_limit}+
                     </Badge>
                   ) : (
                     <Badge pill variant="danger">
-                      {center.sessions[2]?.min_age_limit}
+                      {center.sessions[2]?.min_age_limit}+
                     </Badge>
+                  )) : ("")}
+                  <br />
+                  {center.sessions[2]?.available_capacity ? (
+                    <>
+                      D1: <b>{center.sessions[2]?.available_capacity_dose1}</b>{" "}
+                      <br />
+                      D2: <b>{center.sessions[2]?.available_capacity_dose2}</b>
+                    </>
+                  ) : (
+                    ""
                   )}
-                  <br />
-                  D1: <b>{center.sessions[2]?.available_capacity_dose1}</b>{" "}
-                  <br />
-                  D2: <b>{center.sessions[2]?.available_capacity_dose2}</b>
                 </td>
                 <td>
-                  {center.sessions[3]?.vaccine === "COVISHIELD" ? (
+                  {center.sessions[3]?.available_capacity ?(center.sessions[3]?.vaccine === "COVISHIELD" ? (
                     <Badge variant="success">
                       {center.sessions[3]?.vaccine}
                     </Badge>
@@ -219,23 +200,30 @@ const SearchByDistrict = () => {
                     <Badge variant="primary">
                       {center.sessions[3]?.vaccine}
                     </Badge>
-                  )}&nbsp;
-                  {center.sessions[3]?.min_age_limit === 45 ? (
+                  )) : (<Badge variant="secondary">NA</Badge>)}
+                  &nbsp;
+                  {center.sessions[3]?.available_capacity ? (center.sessions[3]?.min_age_limit === 45 ? (
                     <Badge pill variant="info">
                       {center.sessions[3]?.min_age_limit}+
                     </Badge>
                   ) : (
                     <Badge pill variant="danger">
-                      {center.sessions[3]?.min_age_limit}
+                      {center.sessions[3]?.min_age_limit}+
                     </Badge>
+                  )) : ("")}
+                  <br />
+                  {center.sessions[3]?.available_capacity ? (
+                    <>
+                      D1: <b>{center.sessions[3]?.available_capacity_dose1}</b>{" "}
+                      <br />
+                      D2: <b>{center.sessions[3]?.available_capacity_dose2}</b>
+                    </>
+                  ) : (
+                    ""
                   )}
-                  <br />
-                  D1: <b>{center.sessions[3]?.available_capacity_dose1}</b>{" "}
-                  <br />
-                  D2: <b>{center.sessions[3]?.available_capacity_dose2}</b>
                 </td>
                 <td>
-                  {center.sessions[4]?.vaccine === "COVISHIELD" ? (
+                  {center.sessions[4]?.available_capacity ?(center.sessions[4]?.vaccine === "COVISHIELD" ? (
                     <Badge variant="success">
                       {center.sessions[4]?.vaccine}
                     </Badge>
@@ -243,23 +231,30 @@ const SearchByDistrict = () => {
                     <Badge variant="primary">
                       {center.sessions[4]?.vaccine}
                     </Badge>
-                  )}&nbsp;
-                  {center.sessions[4]?.min_age_limit === 45 ? (
+                  )) : (<Badge variant="secondary">NA</Badge>)}
+                  &nbsp;
+                  {center.sessions[4]?.available_capacity ? (center.sessions[4]?.min_age_limit === 45 ? (
                     <Badge pill variant="info">
                       {center.sessions[4]?.min_age_limit}+
                     </Badge>
                   ) : (
                     <Badge pill variant="danger">
-                      {center.sessions[4]?.min_age_limit}
+                      {center.sessions[4]?.min_age_limit}+
                     </Badge>
+                  )) : ("")}
+                  <br />
+                  {center.sessions[4]?.available_capacity ? (
+                    <>
+                      D1: <b>{center.sessions[4]?.available_capacity_dose1}</b>{" "}
+                      <br />
+                      D2: <b>{center.sessions[4]?.available_capacity_dose2}</b>
+                    </>
+                  ) : (
+                    ""
                   )}
-                  <br />
-                  D1: <b>{center.sessions[4]?.available_capacity_dose1}</b>{" "}
-                  <br />
-                  D2: <b>{center.sessions[4]?.available_capacity_dose2}</b>
                 </td>
                 <td>
-                  {center.sessions[5]?.vaccine === "COVISHIELD" ? (
+                  {center.sessions[5]?.available_capacity ? (center.sessions[5]?.vaccine === "COVISHIELD" ? (
                     <Badge variant="success">
                       {center.sessions[5]?.vaccine}
                     </Badge>
@@ -267,23 +262,30 @@ const SearchByDistrict = () => {
                     <Badge variant="primary">
                       {center.sessions[5]?.vaccine}
                     </Badge>
-                  )}&nbsp;
-                  {center.sessions[5]?.min_age_limit === 45 ? (
+                  )) : (<Badge variant="secondary">NA</Badge>)}
+                  &nbsp;
+                  {center.sessions[5]?.available_capacity ?(center.sessions[5]?.min_age_limit === 45 ? (
                     <Badge pill variant="info">
                       {center.sessions[5]?.min_age_limit}+
                     </Badge>
                   ) : (
                     <Badge pill variant="danger">
-                      {center.sessions[5]?.min_age_limit}
+                      {center.sessions[5]?.min_age_limit}+
                     </Badge>
+                  )) : ("")}
+                  <br />
+                  {center.sessions[5]?.available_capacity ? (
+                    <>
+                      D1: <b>{center.sessions[5]?.available_capacity_dose1}</b>{" "}
+                      <br />
+                      D2: <b>{center.sessions[5]?.available_capacity_dose2}</b>
+                    </>
+                  ) : (
+                    ""
                   )}
-                  <br />
-                  D1: <b>{center.sessions[5]?.available_capacity_dose1}</b>{" "}
-                  <br />
-                  D2: <b>{center.sessions[5]?.available_capacity_dose2}</b>
                 </td>
                 <td>
-                  {center.sessions[6]?.vaccine === "COVISHIELD" ? (
+                  {center.sessions[6]?.available_capacity ?(center.sessions[6]?.vaccine === "COVISHIELD" ? (
                     <Badge variant="success">
                       {center.sessions[6]?.vaccine}
                     </Badge>
@@ -291,20 +293,27 @@ const SearchByDistrict = () => {
                     <Badge variant="primary">
                       {center.sessions[6]?.vaccine}
                     </Badge>
-                  )}&nbsp;
-                  {center.sessions[6]?.min_age_limit === 45 ? (
+                  )) : (<Badge variant="secondary">NA</Badge>)}
+                  &nbsp;
+                  {center.sessions[6]?.available_capacity ?(center.sessions[6]?.min_age_limit === 45 ? (
                     <Badge pill variant="info">
                       {center.sessions[6]?.min_age_limit}+
                     </Badge>
                   ) : (
                     <Badge pill variant="danger">
-                      {center.sessions[6]?.min_age_limit}
+                      {center.sessions[6]?.min_age_limit}+
                     </Badge>
+                  )) : ("")}
+                  <br />
+                  {center.sessions[6]?.available_capacity ? (
+                    <>
+                      D1: <b>{center.sessions[6]?.available_capacity_dose1}</b>{" "}
+                      <br />
+                      D2: <b>{center.sessions[6]?.available_capacity_dose2}</b>
+                    </>
+                  ) : (
+                    ""
                   )}
-                  <br />
-                  D1: <b>{center.sessions[6]?.available_capacity_dose1}</b>{" "}
-                  <br />
-                  D2: <b>{center.sessions[6]?.available_capacity_dose2}</b>
                 </td>
               </tr>
             ) : (
