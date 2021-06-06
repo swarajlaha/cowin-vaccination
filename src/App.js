@@ -1,13 +1,12 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import SearchByDistrict from './components/searchByDistrict';
-import ShowDistrictCode from './components/showDistrictCode';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Col, Container, Row } from "react-bootstrap";
+import ShowDistrictCode from "./components/showDistrictCode";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <ShowDistrictCode />
-      <SearchByDistrict />
-    </div>
+    </>
   );
 }
 

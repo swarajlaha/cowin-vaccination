@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Tooltip, Dropdown } from "react-bootstrap";
+import { Dropdown, Container, Row, Col } from "react-bootstrap";
+import SearchByDistrict from "./searchByDistrict";
 
 const ShowDistrictCode = () => {
   const [districts, setDistricts] = useState([]);
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [distId, setDistID] = useState();
+  const [distName, setDistName] = useState("Select District");
 
   useEffect(() => {
     axios
@@ -22,14 +21,29 @@ const ShowDistrictCode = () => {
 
   return (
     <>
-      <Dropdown>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
-          Select District
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-          {districts.map((district) => <Dropdown.Item href="#/action-3">{district.district_name}</Dropdown.Item>)}
-        </Dropdown.Menu>
-      </Dropdown>
+      <Container className="pl-0">
+        <Row>
+          <Col sm={11} className="ml-0 pl-0">
+            <SearchByDistrict distId={distId} />
+          </Col>
+          <Col sm={1} className="mt-5">
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                {distName}
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                {districts.map((district) => (
+                  <Dropdown.Item
+                    onClick={() => setDistID(district.district_id)}
+                  >
+                    {district.district_name}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };
