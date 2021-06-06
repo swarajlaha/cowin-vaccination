@@ -19,6 +19,11 @@ const ShowDistrictCode = () => {
       });
   }, []);
 
+  const distClickHandler = (district) => {
+    setDistID(district.district_id);
+    setDistName(district.district_name)
+  }
+
   return (
     <>
       <Container className="pl-0">
@@ -28,13 +33,13 @@ const ShowDistrictCode = () => {
           </Col>
           <Col sm={1} className="mt-5">
             <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                {distName}
+              <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
+                <b>{distName}</b>
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 {districts.map((district) => (
                   <Dropdown.Item
-                    onClick={() => setDistID(district.district_id)}
+                    onClick={() => distClickHandler(district)}
                   >
                     {district.district_name}
                   </Dropdown.Item>
