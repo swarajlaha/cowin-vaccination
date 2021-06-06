@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Modal, Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Tooltip, Dropdown } from "react-bootstrap";
 
 const ShowDistrictCode = () => {
   const [districts, setDistricts] = useState([]);
@@ -20,37 +20,16 @@ const ShowDistrictCode = () => {
       });
   }, []);
 
-  const renderTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-      Check district ID
-    </Tooltip>
-  );
-
   return (
     <>
-      <OverlayTrigger
-        placement="right"
-        delay={{ show: 250, hide: 400 }}
-        overlay={renderTooltip}
-      >
-        <Button variant="primary" onClick={handleShow}>
-          District ID
-        </Button>
-      </OverlayTrigger>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Body>
-          {districts.map((district) => (
-            <li key={district.district_id}>
-              {district.district_name} - {district.district_id}
-            </li>
-          ))}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Got it
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <Dropdown>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          Select District
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          {districts.map((district) => <Dropdown.Item href="#/action-3">{district.district_name}</Dropdown.Item>)}
+        </Dropdown.Menu>
+      </Dropdown>
     </>
   );
 };
