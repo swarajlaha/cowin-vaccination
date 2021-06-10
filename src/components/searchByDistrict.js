@@ -29,9 +29,7 @@ const SearchByDistrict = (distId) => {
 
   return (
     <>
-      <br />
-      <br />
-      <Table striped bordered hover>
+      <Table striped bordered hover className="mt-5">
         <thead>
           <tr>
             <th width="20%">Center</th>
