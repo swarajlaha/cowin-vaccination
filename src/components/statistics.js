@@ -7,7 +7,7 @@ import {
   Card,
   ListGroup,
   Accordion,
-  Table
+  Table,
 } from "react-bootstrap";
 
 const Statistics = () => {
@@ -186,25 +186,16 @@ const Statistics = () => {
                 </tr>
               </thead>
               <tbody>
-                {statesData.map((stateData) => {
+                {statesData.map((stateData) => (
                   <tr>
-                    <td>
-                    {stateData.state_name}
-                    </td>
-                    <td>
-                      {stateData.total}
-                    </td>
-                    <td>
-                      {stateData.partial_vaccinated}
-                    </td>
-                    <td>
-                      {stateData.totally_vaccinated}
-                    </td>
-                    <td>
-                      {stateData.today}
-                    </td>
+                    {console.log(stateData.state_name)}
+                    <td>{stateData.state_name}</td>
+                    <td>{stateData.total}</td>
+                    <td>{stateData.partial_vaccinated}</td>
+                    <td>{stateData.totally_vaccinated}</td>
+                    <td>{stateData.today}</td>
                   </tr>
-                })}
+                ))}
               </tbody>
             </Table>
           </Col>
