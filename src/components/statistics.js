@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import WorldStats from "./worldStats";
 import {
   Container,
   Row,
@@ -27,7 +28,6 @@ const Statistics = () => {
         setRegistration(resData.topBlock.registration);
         setVaccination(resData.topBlock.vaccination);
         setStatesData(resData.getBeneficiariesGroupBy);
-        console.log(statesData);
       })
       .catch((err) => {
         console.log(err);
@@ -36,6 +36,7 @@ const Statistics = () => {
 
   return (
     <>
+    <WorldStats />
       <Accordion defaultActiveKey="0">
         <Card className="ml-5 mr-5 mt-5" style={{width: "50%"}}>
             <Accordion.Toggle as={Card.Header} variant="link" eventKey="1">
@@ -199,7 +200,6 @@ const Statistics = () => {
                       <tbody>
                         {statesData.map((stateData) => (
                           <tr>
-                            {console.log(stateData.state_name)}
                             <td>{stateData.state_name}</td>
                             <td>{stateData.total}</td>
                             <td>{stateData.partial_vaccinated}</td>
