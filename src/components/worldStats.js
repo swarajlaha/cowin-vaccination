@@ -11,6 +11,7 @@ const WorldStats = () => {
       .then((res) => {
         let globalData = res.data.Global;
         setGlobal(globalData);
+        console.log(globalData)
       })
       .catch((err) => {
         console.log(err);
@@ -22,9 +23,9 @@ const WorldStats = () => {
       <Card style={{ width: "18rem" }}>
         <Card.Header>WORLD</Card.Header>
         <ListGroup variant="flush">
-          <ListGroup.Item>Confirmed Cases: {global.All.confirmed}</ListGroup.Item>
-          <ListGroup.Item>Deaths: {global.All.deaths}</ListGroup.Item>
-          <ListGroup.Item>Recovered: {global.All.recovered}</ListGroup.Item>
+          <ListGroup.Item>Confirmed Cases: {global.All?.confirmed}</ListGroup.Item>
+          <ListGroup.Item>Deaths: {global.All?.deaths}</ListGroup.Item>
+          <ListGroup.Item>Recovered: {global.All?.recovered}</ListGroup.Item>
         </ListGroup>
       </Card>
     </>
