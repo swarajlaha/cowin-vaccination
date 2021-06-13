@@ -2,21 +2,23 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Table, Badge } from "react-bootstrap";
 import VaccineInfo from "./vaccineInfo";
+import moment from "moment";
 
 const SearchByDistrict = (distId) => {
   const [centers, setCenters] = useState([]);
 
   let distIdParam = JSON.stringify(distId.distId);
-  let today = new Date();
-  let dd = String(today.getDate()).padStart(2, "0");
-  let mm = String(today.getMonth() + 1).padStart(2, "0");
-  var yyyy = today.getFullYear();
-  today = dd + "-" + mm + "-" + yyyy;
+
+  let dateArr = [];
+  for(let i = 0; i < 7; i ++) {
+    let dt = moment().add(i, 'days');
+    dateArr.push((String(dt.format('DD-MM-YYYY'))));
+  }
 
   useEffect(() => {
     axios
       .get(
-        `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${distIdParam}&date=${today}`
+        `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${distIdParam}&date=${dateArr[0]}`
       )
       .then((res) => {
         setCenters(res.data.centers);
@@ -25,19 +27,7 @@ const SearchByDistrict = (distId) => {
         console.log(err);
       });
   }, [distIdParam]);
-
-  let currDate = new Date();
-
-  let dateArr = [
-    "13-06-2021",
-    "14-06-2021",
-    "15-06-2021",
-    "16-06-2021",
-    "17-06-2021",
-    "18-06-2021",
-    "19-06-2021",
-  ];
-
+  
   return (
     <>
       <Table striped bordered hover className="mt-5">
