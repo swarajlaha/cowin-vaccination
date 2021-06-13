@@ -32,7 +32,7 @@ const ShowDistrictCode = () => {
             <SearchByDistrict distId={distId} />
           </Col>
           <Col sm={1} className="mt-5">
-            <Dropdown>
+            <Dropdown style={{whiteSpace:"nowrap", position:"sticky", top:"20px", backgroundColor:"white"}}>
               <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
                 <b>{distName}</b>
               </Dropdown.Toggle>

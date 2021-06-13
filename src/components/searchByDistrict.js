@@ -33,15 +33,14 @@ const SearchByDistrict = (distId) => {
       <Table striped bordered hover className="mt-5">
         <thead>
           <tr>
-            <th width="20%">Center</th>
+            <th style={{whiteSpace:"nowrap", position:"sticky", top:"0", backgroundColor:"white"}}>Center</th>
             {dateArr.map((dt) => (
-              <th width="10%">{dt}</th>
+              <th style={{whiteSpace:"nowrap", position:"sticky", top:"0", backgroundColor:"white"}}>{dt}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {centers.map((center) =>
-            /** Use below array.any */
             center.sessions.some(sess => sess.available_capacity) ? (
               <tr>
                 <td className="pb-0 pr-0">
