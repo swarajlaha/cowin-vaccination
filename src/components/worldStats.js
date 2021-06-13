@@ -20,7 +20,7 @@ const WorldStats = () => {
 
   return (
     <>
-      <Card style={{ width: "18rem" }}>
+      <Card className="mt-5">
         <Card.Header>WORLD</Card.Header>
         <ListGroup variant="flush">
           <ListGroup.Item>Confirmed Cases: {global.All?.confirmed}</ListGroup.Item>

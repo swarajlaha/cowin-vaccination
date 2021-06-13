@@ -33,7 +33,7 @@ const ShowDistrictCode = () => {
               <SearchByDistrict distId={distId} />
             ) : (
               <Alert variant="success" className="mt-5">
-                Please select a District&nbsp; or check the&nbsp;
+                Namaste! Please select a District to check vaccine Availability&nbsp;or view the&nbsp;
                 <Alert.Link href="/statistics">Covid Statics</Alert.Link>.
               </Alert>
             )}
