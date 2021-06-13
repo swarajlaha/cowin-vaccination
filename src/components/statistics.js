@@ -43,13 +43,13 @@ const Statistics = () => {
             </Accordion.Toggle>
           <Accordion.Collapse eventKey="1">
             <Card.Body>
-              <Container className="mt-5">
+              <Container>
                 <Row>
                   <Col>
                     <Accordion defaultActiveKey="0">
                       <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="1">
-                          Vaccination Sites
+                          Sites
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                           <Card.Body>
@@ -98,7 +98,7 @@ const Statistics = () => {
                     <Accordion defaultActiveKey="0">
                       <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="1">
-                          Vaccination Doses
+                          Doses
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                           <Card.Body>
@@ -125,7 +125,7 @@ const Statistics = () => {
                     <Accordion defaultActiveKey="0">
                       <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="1">
-                          Vaccine wise Doses
+                          Vaccine Types
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                           <Card.Body>
@@ -151,7 +151,7 @@ const Statistics = () => {
                     <Accordion defaultActiveKey="0">
                       <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="1">
-                          Vaccinations Today
+                          Today
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                           <Card.Body>
