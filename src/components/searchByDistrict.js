@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Table, Badge } from "react-bootstrap";
+import VaccineInfo from "./vaccineInfo";
 
 const SearchByDistrict = (distId) => {
   const [centers, setCenters] = useState([]);
 
-  let distIdParam = (JSON.stringify(distId.distId));
+  let distIdParam = JSON.stringify(distId.distId);
   let today = new Date();
   let dd = String(today.getDate()).padStart(2, "0");
   let mm = String(today.getMonth() + 1).padStart(2, "0");
@@ -27,51 +28,31 @@ const SearchByDistrict = (distId) => {
 
   let currDate = new Date();
 
+  let dateArr = [
+    "13-06-2021",
+    "14-06-2021",
+    "15-06-2021",
+    "16-06-2021",
+    "17-06-2021",
+    "18-06-2021",
+    "19-06-2021",
+  ];
+
   return (
     <>
       <Table striped bordered hover className="mt-5">
         <thead>
           <tr>
             <th width="20%">Center</th>
-            <th width="10%">
-              {String(currDate.getDate())}-{String(currDate.getMonth() + 1)}-
-              {currDate.getFullYear()}
-            </th>
-            <th width="10%">
-              {String(currDate.getDate() + 1)}-{String(currDate.getMonth() + 1)}
-              -{currDate.getFullYear()}
-            </th>
-            <th width="10%">
-              {String(currDate.getDate() + 2)}-{String(currDate.getMonth() + 1)}
-              -{currDate.getFullYear()}
-            </th>
-            <th width="10%">
-              {String(currDate.getDate() + 3)}-{String(currDate.getMonth() + 1)}
-              -{currDate.getFullYear()}
-            </th>
-            <th width="10%">
-              {String(currDate.getDate() + 4)}-{String(currDate.getMonth() + 1)}
-              -{currDate.getFullYear()}
-            </th>
-            <th width="10%">
-              {String(currDate.getDate() + 5)}-{String(currDate.getMonth() + 1)}
-              -{currDate.getFullYear()}
-            </th>
-            <th width="10%">
-              {String(currDate.getDate() + 6)}-{String(currDate.getMonth() + 1)}
-              -{currDate.getFullYear()}
-            </th>
+            {dateArr.map((dt) => (
+              <th width="10%">{dt}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
           {centers.map((center) =>
-            center.sessions[0]?.available_capacity ||
-            center.sessions[1]?.available_capacity ||
-            center.sessions[2]?.available_capacity ||
-            center.sessions[3]?.available_capacity ||
-            center.sessions[4]?.available_capacity ||
-            center.sessions[5]?.available_capacity ||
-            center.sessions[6]?.available_capacity ? (
+            /** Use below array.any */
+            center.sessions.some(sess => sess.available_capacity) ? (
               <tr>
                 <td className="pb-0 pr-0">
                   <b>{center.name}&nbsp;</b>
@@ -83,279 +64,18 @@ const SearchByDistrict = (distId) => {
                   <br />
                   <p className="mb-0">{center.address}</p>
                 </td>
-                <td className="pb-0 pr-0">
-                  {center.sessions[0]?.available_capacity ? (
-                    center.sessions[0]?.vaccine === "COVISHIELD" ? (
-                      <Badge variant="success">
-                        {center.sessions[0]?.vaccine}
-                      </Badge>
-                    ) : (
-                      <Badge variant="primary">
-                        {center.sessions[0]?.vaccine}
-                      </Badge>
-                    )
-                  ) : (
-                    <Badge variant="secondary">NA</Badge>
-                  )}
-                  &nbsp;
-                  {center.sessions[0]?.available_capacity ? (
-                    center.sessions[0]?.min_age_limit === 45 ? (
-                      <Badge pill variant="info">
-                        {center.sessions[0]?.min_age_limit}+
-                      </Badge>
-                    ) : (
-                      <Badge pill variant="danger">
-                        {center.sessions[0]?.min_age_limit}+
-                      </Badge>
-                    )
-                  ) : (
-                    ""
-                  )}
-                  <br />
-                  {center.sessions[0]?.available_capacity ? (
-                    <>
-                      D1: <b>{center.sessions[0]?.available_capacity_dose1}</b>{" "}
-                      <br />
-                      D2: <b>{center.sessions[0]?.available_capacity_dose2}</b>
-                    </>
-                  ) : (
-                    ""
-                  )}
-                </td>
-                <td className="pb-0 pr-0">
-                  {center.sessions[1]?.available_capacity ? (
-                    center.sessions[1]?.vaccine === "COVISHIELD" ? (
-                      <Badge variant="success">
-                        {center.sessions[1]?.vaccine}
-                      </Badge>
-                    ) : (
-                      <Badge variant="primary">
-                        {center.sessions[1]?.vaccine}
-                      </Badge>
-                    )
-                  ) : (
-                    <Badge variant="secondary">NA</Badge>
-                  )}
-                  &nbsp;
-                  {center.sessions[1]?.available_capacity ? (
-                    center.sessions[1]?.min_age_limit === 45 ? (
-                      <Badge pill variant="info">
-                        {center.sessions[1]?.min_age_limit}+
-                      </Badge>
-                    ) : (
-                      <Badge pill variant="danger">
-                        {center.sessions[1]?.min_age_limit}+
-                      </Badge>
-                    )
-                  ) : (
-                    ""
-                  )}
-                  <br />
-                  {center.sessions[1]?.available_capacity ? (
-                    <>
-                      D1: <b>{center.sessions[1]?.available_capacity_dose1}</b>{" "}
-                      <br />
-                      D2: <b>{center.sessions[1]?.available_capacity_dose2}</b>
-                    </>
-                  ) : (
-                    ""
-                  )}
-                </td>
-                <td className="pb-0 pr-0">
-                  {center.sessions[2]?.available_capacity ? (
-                    center.sessions[2]?.vaccine === "COVISHIELD" ? (
-                      <Badge variant="success">
-                        {center.sessions[2]?.vaccine}
-                      </Badge>
-                    ) : (
-                      <Badge variant="primary">
-                        {center.sessions[2]?.vaccine}
-                      </Badge>
-                    )
-                  ) : (
-                    <Badge variant="secondary">NA</Badge>
-                  )}
-                  &nbsp;
-                  {center.sessions[2]?.available_capacity ? (
-                    center.sessions[2]?.min_age_limit === 45 ? (
-                      <Badge pill variant="info">
-                        {center.sessions[2]?.min_age_limit}+
-                      </Badge>
-                    ) : (
-                      <Badge pill variant="danger">
-                        {center.sessions[2]?.min_age_limit}+
-                      </Badge>
-                    )
-                  ) : (
-                    ""
-                  )}
-                  <br />
-                  {center.sessions[2]?.available_capacity ? (
-                    <>
-                      D1: <b>{center.sessions[2]?.available_capacity_dose1}</b>{" "}
-                      <br />
-                      D2: <b>{center.sessions[2]?.available_capacity_dose2}</b>
-                    </>
-                  ) : (
-                    ""
-                  )}
-                </td>
-                <td className="pb-0 pr-0">
-                  {center.sessions[3]?.available_capacity ? (
-                    center.sessions[3]?.vaccine === "COVISHIELD" ? (
-                      <Badge variant="success">
-                        {center.sessions[3]?.vaccine}
-                      </Badge>
-                    ) : (
-                      <Badge variant="primary">
-                        {center.sessions[3]?.vaccine}
-                      </Badge>
-                    )
-                  ) : (
-                    <Badge variant="secondary">NA</Badge>
-                  )}
-                  &nbsp;
-                  {center.sessions[3]?.available_capacity ? (
-                    center.sessions[3]?.min_age_limit === 45 ? (
-                      <Badge pill variant="info">
-                        {center.sessions[3]?.min_age_limit}+
-                      </Badge>
-                    ) : (
-                      <Badge pill variant="danger">
-                        {center.sessions[3]?.min_age_limit}+
-                      </Badge>
-                    )
-                  ) : (
-                    ""
-                  )}
-                  <br />
-                  {center.sessions[3]?.available_capacity ? (
-                    <>
-                      D1: <b>{center.sessions[3]?.available_capacity_dose1}</b>{" "}
-                      <br />
-                      D2: <b>{center.sessions[3]?.available_capacity_dose2}</b>
-                    </>
-                  ) : (
-                    ""
-                  )}
-                </td>
-                <td className="pb-0 pr-0">
-                  {center.sessions[4]?.available_capacity ? (
-                    center.sessions[4]?.vaccine === "COVISHIELD" ? (
-                      <Badge variant="success">
-                        {center.sessions[4]?.vaccine}
-                      </Badge>
-                    ) : (
-                      <Badge variant="primary">
-                        {center.sessions[4]?.vaccine}
-                      </Badge>
-                    )
-                  ) : (
-                    <Badge variant="secondary">NA</Badge>
-                  )}
-                  &nbsp;
-                  {center.sessions[4]?.available_capacity ? (
-                    center.sessions[4]?.min_age_limit === 45 ? (
-                      <Badge pill variant="info">
-                        {center.sessions[4]?.min_age_limit}+
-                      </Badge>
-                    ) : (
-                      <Badge pill variant="danger">
-                        {center.sessions[4]?.min_age_limit}+
-                      </Badge>
-                    )
-                  ) : (
-                    ""
-                  )}
-                  <br />
-                  {center.sessions[4]?.available_capacity ? (
-                    <>
-                      D1: <b>{center.sessions[4]?.available_capacity_dose1}</b>{" "}
-                      <br />
-                      D2: <b>{center.sessions[4]?.available_capacity_dose2}</b>
-                    </>
-                  ) : (
-                    ""
-                  )}
-                </td>
-                <td className="pb-0 pr-0">
-                  {center.sessions[5]?.available_capacity ? (
-                    center.sessions[5]?.vaccine === "COVISHIELD" ? (
-                      <Badge variant="success">
-                        {center.sessions[5]?.vaccine}
-                      </Badge>
-                    ) : (
-                      <Badge variant="primary">
-                        {center.sessions[5]?.vaccine}
-                      </Badge>
-                    )
-                  ) : (
-                    <Badge variant="secondary">NA</Badge>
-                  )}
-                  &nbsp;
-                  {center.sessions[5]?.available_capacity ? (
-                    center.sessions[5]?.min_age_limit === 45 ? (
-                      <Badge pill variant="info">
-                        {center.sessions[5]?.min_age_limit}+
-                      </Badge>
-                    ) : (
-                      <Badge pill variant="danger">
-                        {center.sessions[5]?.min_age_limit}+
-                      </Badge>
-                    )
-                  ) : (
-                    ""
-                  )}
-                  <br />
-                  {center.sessions[5]?.available_capacity ? (
-                    <>
-                      D1: <b>{center.sessions[5]?.available_capacity_dose1}</b>{" "}
-                      <br />
-                      D2: <b>{center.sessions[5]?.available_capacity_dose2}</b>
-                    </>
-                  ) : (
-                    ""
-                  )}
-                </td>
-                <td className="pb-0 pr-0">
-                  {center.sessions[6]?.available_capacity ? (
-                    center.sessions[6]?.vaccine === "COVISHIELD" ? (
-                      <Badge variant="success">
-                        {center.sessions[6]?.vaccine}
-                      </Badge>
-                    ) : (
-                      <Badge variant="primary">
-                        {center.sessions[6]?.vaccine}
-                      </Badge>
-                    )
-                  ) : (
-                    <Badge variant="secondary">NA</Badge>
-                  )}
-                  &nbsp;
-                  {center.sessions[6]?.available_capacity ? (
-                    center.sessions[6]?.min_age_limit === 45 ? (
-                      <Badge pill variant="info">
-                        {center.sessions[6]?.min_age_limit}+
-                      </Badge>
-                    ) : (
-                      <Badge pill variant="danger">
-                        {center.sessions[6]?.min_age_limit}+
-                      </Badge>
-                    )
-                  ) : (
-                    ""
-                  )}
-                  <br />
-                  {center.sessions[6]?.available_capacity ? (
-                    <>
-                      D1: <b>{center.sessions[6]?.available_capacity_dose1}</b>{" "}
-                      <br />
-                      D2: <b>{center.sessions[6]?.available_capacity_dose2}</b>
-                    </>
-                  ) : (
-                    ""
-                  )}
-                </td>
+                {dateArr.map((dt) => {
+                  const dtArrs = center.sessions.filter(
+                    (session) => session.date === dt
+                  );
+                  return (
+                    <td className="pb-0 pr-0">
+                      {dtArrs.map((dtArr) => {
+                        return <VaccineInfo dtArr={dtArr} />
+                      })}
+                    </td>
+                  );
+                })}
               </tr>
             ) : (
               ""
