@@ -69,6 +69,7 @@ const OtpBox = () => {
 
   const config = {
     headers: { Authorization: `Bearer ${otpToken}` },
+    responseType: "arraybuffer"
   };
 
   const certDownloadHandler = () => {
