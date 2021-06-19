@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import WorldStats from "./worldStats";
+import WorldStats from "../components/worldStats";
 import {
   Container,
   Row,
@@ -9,7 +9,7 @@ import {
   Accordion,
   Table,
 } from "react-bootstrap";
-import IndiaStats from "./indiaStats";
+import IndiaStats from "../components/indiaStats";
 
 const Statistics = () => {
   return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Dropdown, Container, Row, Col, Alert } from "react-bootstrap";
-import SearchByDistrict from "./searchByDistrict";
+import MessageBox from "./messageBox";
 
 const ShowDistrictCode = () => {
   const [districts, setDistricts] = useState([]);
@@ -29,14 +29,7 @@ const ShowDistrictCode = () => {
       <Container className="pl-0">
         <Row>
           <Col sm={11} className="ml-0 pl-0">
-            {distId ? (
-              <SearchByDistrict distId={distId} />
-            ) : (
-              <Alert variant="success" className="mt-5">
-                Namaste! Please select a District to check vaccine Availability&nbsp;or view the&nbsp;
-                <Alert.Link href="/statistics">Covid Statics</Alert.Link>.
-              </Alert>
-            )}
+            <MessageBox distId={distId} />
           </Col>
           <Col sm={1} className="mt-5">
             <Dropdown
