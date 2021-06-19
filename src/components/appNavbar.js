@@ -12,7 +12,7 @@ const AppNavbar = () => {
         </Nav>
         <Navbar.Collapse className="justify-content-end mr-5">
           <Navbar.Text>
-          Please visit <a href="https://www.cowin.gov.in/home" target="_blank">CoWIN</a> for all services
+          Please visit <a href="https://www.cowin.gov.in/home" target="_blank">CoWIN</a> for all services.
           </Navbar.Text>
         </Navbar.Collapse>
       </Navbar>

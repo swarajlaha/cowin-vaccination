@@ -20,7 +20,7 @@ const IndiaStats = () => {
   useEffect(() => {
     axios
       .get(
-        `https://cdn-api.co-vin.in/api/v1/reports/v2/getPublicReports?state_id=&district_id=&date=`
+        `${process.env.REACT_APP_COWIN_BASE_URL}v1/reports/v2/getPublicReports?state_id=&district_id=&date=`
       )
       .then((res) => {
         let resData = res.data;

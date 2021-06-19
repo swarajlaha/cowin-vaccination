@@ -18,7 +18,7 @@ const SearchByDistrict = (distId) => {
   useEffect(() => {
     axios
       .get(
-        `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${distIdParam}&date=${dateArr[0]}`
+        `${process.env.REACT_APP_COWIN_BASE_URL}v2/appointment/sessions/public/calendarByDistrict?district_id=${distIdParam}&date=${dateArr[0]}`
       )
       .then((res) => {
         setCenters(res.data.centers);

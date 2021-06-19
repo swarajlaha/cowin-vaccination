@@ -10,7 +10,7 @@ const ShowDistrictCode = () => {
 
   useEffect(() => {
     axios
-      .get(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/26`)
+      .get(`${process.env.REACT_APP_COWIN_BASE_URL}v2/admin/location/districts/26`)
       .then((res) => {
         setDistricts(res.data.districts);
       })
