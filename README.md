@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# COWIN VACCINATION
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web app created using React JS, to check the availabilty of vaccines in various districts of Odisha. It also has the feature of covid related statistics in India and around the world.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+1. Clone the repository.
+2. Open the directory in your local and run `npm install` in the cmd, to install required packages.
+3. Run the command: `npm run start` for the application to get started on your default browser.
 
-### `npm start`
+## Working Cowin Vaccination
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. When the app opens on your localhost, the below landing page is shown.
+![landing](https://user-images.githubusercontent.com/26769575/122637606-4659c380-d10d-11eb-91ab-16aa6de3e862.JPG)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. Either select an option for your required district from the adjacent dropdown to check availabilty of vaccines or click on _Covid Statistics_ to view info related to covid.
+3. When a district is selected from the dropdown, a table showing availability of vaccines is shown in various centers of that district.
+![checkavail](https://user-images.githubusercontent.com/26769575/122637785-2676cf80-d10e-11eb-9313-d4e6ae040254.JPG)
 
-### `npm test`
+4. To view statistics related to covid, click on _Statistics_ in the Navigation bar.
+5. It shows various data of the world and on clicking on _India_, various data is shown. Scroll to see data of various states of India.
+![stats](https://user-images.githubusercontent.com/26769575/122637867-88373980-d10e-11eb-9a9f-965a59a42869.JPG)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+6. Click on each of the boxes, like, _Sites, Registrations_ to view relevant data.
+![stats2](https://user-images.githubusercontent.com/26769575/122637940-dea47800-d10e-11eb-9d91-bde1f308d597.JPG)
 
-### `npm run build`
+## API Reference
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Data used/shown in this app have been taken from APIs, provided by [API Setu](https://apisetu.gov.in/public/marketplace/api/cowin/) and [https://covid-api.mmediagroup.fr/v1/cases]().
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Please Note
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The developer of this app is no way responsible for incorrect data or in any other way for any discrepancy. Also, it is recommended to visit [CoWIN](https://www.cowin.gov.in/home), [Aarogya Setu](https://www.mygov.in/aarogya-setu-app/) and other Governement provided platforms for covid related info and for vaccination bookings.
 
-### `npm run eject`
+## Contribution
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you like the app, don't forget to Star and if you find any issue or would like to add an enhancement, please raise a PR. Thank you!
