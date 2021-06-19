@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Dropdown, Container, Row, Col, Alert } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import MessageBox from "./messageBox";
+import DropdownSelect from './dropdownSelect';
 
 const ShowDistrictCode = () => {
   const [districts, setDistricts] = useState([]);
@@ -32,25 +33,7 @@ const ShowDistrictCode = () => {
             <MessageBox distId={distId} />
           </Col>
           <Col sm={1} className="mt-5">
-            <Dropdown
-              style={{
-                whiteSpace: "nowrap",
-                position: "sticky",
-                top: "20px",
-                backgroundColor: "white",
-              }}
-            >
-              <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
-                <b>{distName}</b>
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                {districts.map((district) => (
-                  <Dropdown.Item onClick={() => distClickHandler(district)}>
-                    {district.district_name}
-                  </Dropdown.Item>
-                ))}
-              </Dropdown.Menu>
-            </Dropdown>
+            <DropdownSelect distClickHandler={distClickHandler} distName={distName} districts={districts}/>
           </Col>
         </Row>
       </Container>

@@ -1,5 +1,4 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import ShowDistrictCode from "./components/showDistrictCode";
 import AppNavbar from "./commons/appNavbar";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Statistics from './Pages/Statistics';

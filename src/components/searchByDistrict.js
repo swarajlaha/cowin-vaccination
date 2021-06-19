@@ -10,9 +10,9 @@ const SearchByDistrict = (distId) => {
   let distIdParam = JSON.stringify(distId.distId);
 
   let dateArr = [];
-  for(let i = 0; i < 7; i ++) {
-    let dt = moment().add(i, 'days');
-    dateArr.push((String(dt.format('DD-MM-YYYY'))));
+  for (let i = 0; i < 7; i++) {
+    let dt = moment().add(i, "days");
+    dateArr.push(String(dt.format("DD-MM-YYYY")));
   }
 
   useEffect(() => {
@@ -27,51 +27,71 @@ const SearchByDistrict = (distId) => {
         console.log(err);
       });
   }, [distIdParam]);
-  
+
   return (
     <>
-      <Table striped bordered hover className="mt-5">
-        <thead>
-          <tr>
-            <th style={{whiteSpace:"nowrap", position:"sticky", top:"0", backgroundColor:"white"}}>Center</th>
-            {dateArr.map((dt) => (
-              <th style={{whiteSpace:"nowrap", position:"sticky", top:"0", backgroundColor:"white"}}>{dt}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {centers.map((center) =>
-            center.sessions.some(sess => sess.available_capacity) ? (
-              <tr>
-                <td className="pb-0 pr-0">
-                  <b>{center.name}&nbsp;</b>
-                  {center.fee_type === "Paid" ? (
-                    <Badge variant="danger">{center.fee_type}</Badge>
-                  ) : (
-                    ""
-                  )}
-                  <br />
-                  <p className="mb-0">{center.address}</p>
-                </td>
-                {dateArr.map((dt) => {
-                  const dtArrs = center.sessions.filter(
-                    (session) => session.date === dt
-                  );
-                  return (
-                    <td className="pb-0 pr-0">
-                      {dtArrs.map((dtArr) => {
-                        return <VaccineInfo dtArr={dtArr} />
-                      })}
-                    </td>
-                  );
-                })}
-              </tr>
-            ) : (
-              ""
-            )
-          )}
-        </tbody>
-      </Table>
+      <div className="mt-5" style={{ height: "auto", maxHeight: "650px", overflowX: "hidden" }}>
+        <Table striped bordered hover >
+          <thead>
+            <tr>
+              <th
+                style={{
+                  whiteSpace: "nowrap",
+                  position: "sticky",
+                  top: "0",
+                  backgroundColor: "white",
+                }}
+              >
+                Center
+              </th>
+              {dateArr.map((dt) => (
+                <th
+                  style={{
+                    whiteSpace: "nowrap",
+                    position: "sticky",
+                    top: "0",
+                    backgroundColor: "white",
+                  }}
+                >
+                  {dt}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {centers.map((center) =>
+              center.sessions.some((sess) => sess.available_capacity) ? (
+                <tr>
+                  <td className="pb-0 pr-0">
+                    <b>{center.name}&nbsp;</b>
+                    {center.fee_type === "Paid" ? (
+                      <Badge variant="danger">{center.fee_type}</Badge>
+                    ) : (
+                      ""
+                    )}
+                    <br />
+                    <p className="mb-0">{center.address}</p>
+                  </td>
+                  {dateArr.map((dt) => {
+                    const dtArrs = center.sessions.filter(
+                      (session) => session.date === dt
+                    );
+                    return (
+                      <td className="pb-0 pr-0">
+                        {dtArrs.map((dtArr) => {
+                          return <VaccineInfo dtArr={dtArr} />;
+                        })}
+                      </td>
+                    );
+                  })}
+                </tr>
+              ) : (
+                ""
+              )
+            )}
+          </tbody>
+        </Table>
+      </div>
     </>
   );
 };

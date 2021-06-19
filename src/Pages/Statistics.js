@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import WorldStats from "../components/worldStats";
 import {
   Container,
