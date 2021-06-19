@@ -24,6 +24,8 @@ A web app created using React JS, to check the availabilty of vaccines in variou
 6. Click on each of the boxes, like, _Sites, Registrations_ to view relevant data.
 ![stats2](https://user-images.githubusercontent.com/26769575/122637940-dea47800-d10e-11eb-9d91-bde1f308d597.JPG)
 
+7. You can visit CoWIN portal by clicking on _CoWIN_ hyperlink, in the Navbar.
+
 ## API Reference
 
 Data used/shown in this app have been taken from APIs, provided by [API Setu](https://apisetu.gov.in/public/marketplace/api/cowin/) and [https://covid-api.mmediagroup.fr/v1/cases]().
