@@ -8,6 +8,8 @@ const OtpBox = () => {
   const [sentOtp, setSentOtp] = useState("Please enter the OTP");
   const [otpToken, setOtpToken] = useState("");
   const [errCode, setErrCode] = useState(false);
+  const [referenceId, setReferenceId] = useState("Please enter reference ID");
+  const [downlaodURL, setDownloadURL] = useState("");
 
   var crypto = require("crypto");
 
@@ -61,6 +63,39 @@ const OtpBox = () => {
       });
   };
 
+  const refIdChangeHandler = (e) => {
+    setReferenceId(String(e.target.value));
+  };
+
+  const config = {
+    headers: { Authorization: `Bearer ${otpToken}` },
+  };
+
+  const certDownloadHandler = () => {
+    axios
+      .get(
+        `${process.env.REACT_APP_COWIN_BASE_URL}v2/registration/certificate/public/download?beneficiary_reference_id=${referenceId}`,
+        config, { responseType: "blob" }
+      )
+      .then((res) => {
+        console.log("referenceId", referenceId);
+        console.log("success", res);
+        setDownloadURL(res.config.url);
+        const file = new Blob([res.data], { type: "application/pdf" });
+        const fileURL = URL.createObjectURL(file);
+        const link = document.createElement("a");
+        link.href = fileURL;
+        link.download = "certificate";
+        link.click();
+      })
+      .catch((err) => {
+        console.log(err);
+        setErrCode(true);
+      });
+  };
+
+  console.log(otpToken);
+
   return (
     <>
       {otpTxnId && !otpToken && sentOtp && !errCode && (
@@ -90,9 +125,9 @@ const OtpBox = () => {
           </div>
         </Card.Body>
       </Card>
-      {otpTxnId && (
-        <Card className="mt-3">
-          <>
+      {otpTxnId !== "" && (
+        <>
+          <Card className="mt-3">
             <Card.Header>Enter OTP</Card.Header>
             <Card.Body>
               <div>
@@ -114,9 +149,36 @@ const OtpBox = () => {
                 </InputGroup>
               </div>
             </Card.Body>
-          </>
-        </Card>
+          </Card>
+        </>
       )}
+      {otpToken &&
+        <>
+          <Card className="mt-3">
+            <Card.Header>Reference ID</Card.Header>
+            <Card.Body>
+              <div>
+                <InputGroup className="mb-3">
+                  <InputGroup.Prepend></InputGroup.Prepend>
+                  <FormControl
+                    placeholder={referenceId}
+                    aria-label="otp"
+                    onChange={(e) => refIdChangeHandler(e)}
+                  />
+                  <InputGroup.Append>
+                    <Button
+                      variant="outline-secondary"
+                      onClick={certDownloadHandler}
+                    >
+                      Download
+                    </Button>
+                  </InputGroup.Append>
+                </InputGroup>
+              </div>
+            </Card.Body>
+          </Card>
+        </>
+      }
       {otpToken && <Alert variant="success">Verified!</Alert>}
       {errCode && (
         <Alert variant="danger">
