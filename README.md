@@ -4,7 +4,7 @@ A web app created using React JS, to check the availabilty of vaccines in variou
 
 ## Getting Started
 
-1. Clone the repository.
+1. Fork or clone the repository.
 2. Open the directory in your local and run `npm install` in the cmd, to install required packages.
 3. Run the command: `npm run start` for the application to get started on your default browser.
 
