@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table, Badge } from "react-bootstrap";
+import { Badge } from "react-bootstrap";
 
 const VaccineInfo = (props) => {
   return (
@@ -30,8 +30,7 @@ const VaccineInfo = (props) => {
       <br />
       {props.dtArr?.available_capacity ? (
         <>
-          D1: <b>{props.dtArr?.available_capacity_dose1}</b>{" "}
-          <br />
+          D1: <b>{props.dtArr?.available_capacity_dose1}</b> <br />
           D2: <b>{props.dtArr?.available_capacity_dose2}</b>
         </>
       ) : (

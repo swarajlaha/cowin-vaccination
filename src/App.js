@@ -1,9 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Col, Container, Row } from "react-bootstrap";
-import ShowDistrictCode from "./components/showDistrictCode";
-import AppNavbar from "./components/appNavbar";
+import AppNavbar from "./commons/appNavbar";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import Statistics from './components/statistics';
+import Statistics from './Pages/Statistics';
+import Welcome from "./Pages/Welcome";
 
 function App() {
   return (
@@ -11,7 +10,7 @@ function App() {
       <AppNavbar />
       <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={ShowDistrictCode} />
+        <Route exact path="/" component={Welcome} />
         <Route exact path="/statistics" component={Statistics} />
       </Switch>
     </BrowserRouter>
