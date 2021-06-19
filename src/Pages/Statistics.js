@@ -4,10 +4,6 @@ import {
   Container,
   Row,
   Col,
-  Card,
-  ListGroup,
-  Accordion,
-  Table,
 } from "react-bootstrap";
 import IndiaStats from "../components/indiaStats";
 

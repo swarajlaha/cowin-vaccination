@@ -9,6 +9,7 @@ const AppNav = () => {
         <Nav className="mr-auto">
           <Nav.Link href="/">Availability</Nav.Link>
           <Nav.Link href="/statistics">Statistics</Nav.Link>
+          <Nav.Link href="/certificate">Certificate</Nav.Link>
         </Nav>
         <Navbar.Collapse className="justify-content-end mr-5">
           <Navbar.Text>
