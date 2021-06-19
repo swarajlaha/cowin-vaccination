@@ -14,7 +14,7 @@ const MessageBox = (props) => {
             ) : (
               <Alert variant="success" className="mt-5">
                 Namaste! Please select a District to check vaccine Availability&nbsp;or view the&nbsp;
-                <Alert.Link href="/statistics">Covid Statics</Alert.Link>.
+                <Alert.Link href="/statistics">Covid Statistics</Alert.Link>.
               </Alert>
             )}
           </Col>
