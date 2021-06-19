@@ -8,7 +8,7 @@ A web app created using React JS, to check the availabilty of vaccines in variou
 2. Open the directory in your local and run `npm install` in the cmd, to install required packages.
 3. Run the command: `npm run start` for the application to get started on your default browser.
 
-## Working Cowin Vaccination
+## Working of Cowin Vaccination
 
 1. When the app opens on your localhost, the below landing page is shown.
 ![landing](https://user-images.githubusercontent.com/26769575/122637606-4659c380-d10d-11eb-91ab-16aa6de3e862.JPG)
