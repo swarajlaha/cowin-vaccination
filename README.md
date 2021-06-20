@@ -1,6 +1,6 @@
 # COWIN VACCINATION
 
-A web app created using React JS, to check the availabilty of vaccines in various districts of Odisha. It also has the feature of covid related statistics in India and around the world.
+A web app created using React JS, to check the availabilty of vaccines in various districts of Odisha, view covid related statistics in India and the world and download vaccine certificate.
 
 ## Getting Started
 
