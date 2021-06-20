@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import MobileNoCard from "./mobileNoCard";
 import OtpBox from "./otpBox";
-import { Card } from "react-bootstrap";
+import { Card, OverlayTrigger, Tooltip, Button } from "react-bootstrap";
+import { RiInformationLine } from "react-icons/ri";
 import RefCard from "./refCard";
 import AlertBox from "./alertBox";
 
@@ -25,20 +26,23 @@ const DownloadCert = () => {
   };
 
   const sendOtpHandler = () => {
-    axios
-      .post(
-        `${process.env.REACT_APP_COWIN_BASE_URL}v2/auth/public/generateOTP`,
-        generateOTPReqBody
-      )
-      .then((res) => {
-        console.log("sent", res);
-        setOtpTxnId(String(res.data.txnId));
-        setAlertCode("1");
-      })
-      .catch((err) => {
-        console.log(err);
-        setAlertCode("4");
-      });
+    if (mobileNo.length === 10) {
+      axios
+        .post(
+          `${process.env.REACT_APP_COWIN_BASE_URL}v2/auth/public/generateOTP`,
+          generateOTPReqBody
+        )
+        .then((res) => {
+          setOtpTxnId(String(res.data.txnId));
+          setAlertCode("1");
+        })
+        .catch((err) => {
+          console.log(err);
+          setAlertCode("4");
+        });
+    } else {
+      setAlertCode("7");
+    }
   };
 
   const otpChangeHandler = (e) => {
@@ -59,7 +63,6 @@ const DownloadCert = () => {
         confirmOTPReqBody
       )
       .then((res) => {
-        console.log("success", res);
         setOtpToken(String(res.data.token));
         setAlertCode("2");
       })
@@ -87,8 +90,6 @@ const DownloadCert = () => {
       )
       .then((res) => {
         setAlertCode("3");
-        console.log("referenceId", referenceId);
-        console.log("success", res);
         const file = new Blob([res.data], { type: "application/pdf" });
         const fileURL = URL.createObjectURL(file);
         const link = document.createElement("a");
@@ -102,13 +103,26 @@ const DownloadCert = () => {
       });
   };
 
-  console.log(otpToken);
-
   return (
     <>
-      <AlertBox alertCode={alertCode} />
+      <AlertBox alertCode={alertCode} mobileNo={mobileNo} />
       <Card>
-        <Card.Header>Download Certificate</Card.Header>
+        <Card.Header>
+          <b>Download Certificate</b>
+          <OverlayTrigger
+            placement="right"
+            overlay={
+              <Tooltip id={`tooltip-right`} style={{ opacity: "0.6" }}>
+                Enter you registered mobile no., verify OTP and download the
+                vaccine certificate.
+              </Tooltip>
+            }
+          >
+            <Button className="pt-0" variant="light">
+              <RiInformationLine />
+            </Button>
+          </OverlayTrigger>
+        </Card.Header>
         <Card.Body>
           <MobileNoCard
             mobileNo={mobileNo}

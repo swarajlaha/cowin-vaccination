@@ -6,7 +6,7 @@ const AlertBox = (props) => {
     <>
       {props.alertCode === "1" ? (
         <Alert variant="success">
-          OTP sent successfully! Valid for 3 minutes.
+          OTP sent to <i>{props.mobileNo}</i>. Valid for 3 minutes.
         </Alert>
       ) : props.alertCode === "2" ? (
         <Alert variant="success">OTP validated successfully.</Alert>
@@ -21,6 +21,10 @@ const AlertBox = (props) => {
       ) : props.alertCode === "6" ? (
         <Alert variant="danger">
           Sorry! Certificate could not be downloaded.
+        </Alert>
+      ) : props.alertCode === "7" ? (
+        <Alert variant="danger">
+          Invalid mobile no.
         </Alert>
       ) : (
         ""

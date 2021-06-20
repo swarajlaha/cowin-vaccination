@@ -12,7 +12,7 @@ const MessageBox = (props) => {
             {props.distId ? (
               <SearchByDistrict distId={props.distId} />
             ) : (
-              <Alert variant="success" className="mt-5">
+              <Alert variant="success" className="mt-3">
                 Namaste! Please select a District to check vaccine Availability&nbsp;or view the&nbsp;
                 <Alert.Link href="/statistics">Covid Statistics</Alert.Link>.
               </Alert>

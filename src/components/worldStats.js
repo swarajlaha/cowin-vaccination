@@ -11,21 +11,30 @@ const WorldStats = () => {
       .then((res) => {
         let globalData = res.data.Global;
         setGlobal(globalData);
-        console.log(globalData)
       })
       .catch((err) => {
         console.log(err);
       });
   }, [setGlobal]);
 
+  function numberWithCommas(x) {
+    return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  const confCases = numberWithCommas(global.All?.confirmed);
+  const deaths = numberWithCommas(global.All?.deaths);
+  const recovered = numberWithCommas(global.All?.recovered);
+
   return (
     <>
       <Card className="mt-5">
-        <Card.Header>WORLD</Card.Header>
+        <Card.Header>
+          <b>WORLD</b>
+        </Card.Header>
         <ListGroup variant="flush">
-          <ListGroup.Item>Confirmed Cases: {global.All?.confirmed}</ListGroup.Item>
-          <ListGroup.Item>Deaths: {global.All?.deaths}</ListGroup.Item>
-          <ListGroup.Item>Recovered: {global.All?.recovered}</ListGroup.Item>
+          <ListGroup.Item>Confirmed Cases: {confCases}</ListGroup.Item>
+          <ListGroup.Item>Deaths: {deaths}</ListGroup.Item>
+          <ListGroup.Item>Recovered: {recovered}</ListGroup.Item>
         </ListGroup>
       </Card>
     </>

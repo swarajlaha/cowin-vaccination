@@ -18,7 +18,7 @@ const DropdownSelect = (props) => {
           <b>{props.distName}</b>
         </Dropdown.Toggle>
         <Dropdown.Menu
-          style={{ height: "auto", maxHeight: "610px", overflowX: "hidden" }}
+          style={{ height: "auto", maxHeight: "645px", overflowX: "hidden" }}
         >
           {props.districts.map((district) => (
             <Dropdown.Item onClick={() => props.distClickHandler(district)}>
