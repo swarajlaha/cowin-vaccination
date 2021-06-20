@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { RiArrowUpSLine, RiArrowDownSLine } from 'react-icons/ri';
+import {
+  RiArrowUpSLine,
+  RiArrowDownSLine,
+  RiInformationLine,
+} from "react-icons/ri";
 import {
   Container,
   Row,
@@ -9,6 +13,9 @@ import {
   ListGroup,
   Accordion,
   Table,
+  OverlayTrigger,
+  Tooltip,
+  Button,
 } from "react-bootstrap";
 
 const IndiaStats = () => {
@@ -46,8 +53,18 @@ const IndiaStats = () => {
           <div
             style={{ height: "auto", maxHeight: "650px", overflowX: "hidden" }}
           >
-            <Accordion.Toggle as={Card.Header} variant="link" eventKey="1" onClick={() => {setAccordionState(!accordionState)}}>
-              <b>INDIA {accordionState ? <RiArrowUpSLine /> : <RiArrowDownSLine />}</b>
+            <Accordion.Toggle
+              as={Card.Header}
+              variant="link"
+              eventKey="1"
+              onClick={() => {
+                setAccordionState(!accordionState);
+              }}
+            >
+              <b>
+                INDIA{" "}
+                {accordionState ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
+              </b>
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="1">
               <Card.Body>
@@ -58,6 +75,22 @@ const IndiaStats = () => {
                         <Card>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Sites
+                            <OverlayTrigger
+                              placement="right"
+                              overlay={
+                                <Tooltip
+                                  id={`tooltip-right`}
+                                  style={{ opacity: "0.6" }}
+                                >
+                                  Total public and private health facilities
+                                  conducting vaccination today.
+                                </Tooltip>
+                              }
+                            >
+                              <Button className="pt-0" variant="light">
+                                <RiInformationLine />
+                              </Button>
+                            </OverlayTrigger>
                           </Accordion.Toggle>
                           <Accordion.Collapse eventKey="1">
                             <Card.Body>
@@ -82,15 +115,32 @@ const IndiaStats = () => {
                         <Card>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Registrations
+                            <OverlayTrigger
+                              placement="right"
+                              overlay={
+                                <Tooltip
+                                  id={`tooltip-right`}
+                                  style={{ opacity: "0.6" }}
+                                >
+                                  Total number of beneficiaries registered till date.
+                                </Tooltip>
+                              }
+                            >
+                              <Button className="pt-0" variant="light">
+                                <RiInformationLine />
+                              </Button>
+                            </OverlayTrigger>
                           </Accordion.Toggle>
                           <Accordion.Collapse eventKey="1">
                             <Card.Body>
                               <ListGroup variant="flush">
                                 <ListGroup.Item>
-                                  Age 18+: {numberWithCommas(registration.cit_18_45)}
+                                  Age 18+:{" "}
+                                  {numberWithCommas(registration.cit_18_45)}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Age 45+: {numberWithCommas(registration.cit_45_above)}
+                                  Age 45+:{" "}
+                                  {numberWithCommas(registration.cit_45_above)}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                   Today: {numberWithCommas(registration.today)}
@@ -109,18 +159,36 @@ const IndiaStats = () => {
                         <Card>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Doses
+                            <OverlayTrigger
+                              placement="right"
+                              overlay={
+                                <Tooltip
+                                  id={`tooltip-right`}
+                                  style={{ opacity: "0.6" }}
+                                >
+                                  Total number of vaccine doses till date.
+                                </Tooltip>
+                              }
+                            >
+                              <Button className="pt-0" variant="light">
+                                <RiInformationLine />
+                              </Button>
+                            </OverlayTrigger>
                           </Accordion.Toggle>
                           <Accordion.Collapse eventKey="1">
                             <Card.Body>
                               <ListGroup variant="flush">
                                 <ListGroup.Item>
-                                  Total Doses: {numberWithCommas(vaccination.total_doses)}
+                                  Total Doses:{" "}
+                                  {numberWithCommas(vaccination.total_doses)}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Dose1: {numberWithCommas(vaccination.tot_dose_1)}
+                                  Dose1:{" "}
+                                  {numberWithCommas(vaccination.tot_dose_1)}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Dose2: {numberWithCommas(vaccination.tot_dose_2)}
+                                  Dose2:{" "}
+                                  {numberWithCommas(vaccination.tot_dose_2)}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                   Today: {numberWithCommas(vaccination.today)}
@@ -138,18 +206,36 @@ const IndiaStats = () => {
                         <Card>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Vaccine Types
+                            <OverlayTrigger
+                              placement="right"
+                              overlay={
+                                <Tooltip
+                                  id={`tooltip-right`}
+                                  style={{ opacity: "0.6" }}
+                                >
+                                  No. of doses of each type of vaccines administered till date.
+                                </Tooltip>
+                              }
+                            >
+                              <Button className="pt-0" variant="light">
+                                <RiInformationLine />
+                              </Button>
+                            </OverlayTrigger>
                           </Accordion.Toggle>
                           <Accordion.Collapse eventKey="1">
                             <Card.Body>
                               <ListGroup variant="flush">
                                 <ListGroup.Item>
-                                  Covaxin: {numberWithCommas(vaccination.covaxin)}
+                                  Covaxin:{" "}
+                                  {numberWithCommas(vaccination.covaxin)}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Covishield: {numberWithCommas(vaccination.covishield)}
+                                  Covishield:{" "}
+                                  {numberWithCommas(vaccination.covishield)}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Sputnik: {numberWithCommas(vaccination.sputnik)}
+                                  Sputnik:{" "}
+                                  {numberWithCommas(vaccination.sputnik)}
                                 </ListGroup.Item>
                               </ListGroup>
                             </Card.Body>
@@ -162,6 +248,21 @@ const IndiaStats = () => {
                         <Card>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Today
+                            <OverlayTrigger
+                              placement="right"
+                              overlay={
+                                <Tooltip
+                                  id={`tooltip-right`}
+                                  style={{ opacity: "0.6" }}
+                                >
+                                  No. of vaccines administered today.
+                                </Tooltip>
+                              }
+                            >
+                              <Button className="pt-0" variant="light">
+                                <RiInformationLine />
+                              </Button>
+                            </OverlayTrigger>
                           </Accordion.Toggle>
                           <Accordion.Collapse eventKey="1">
                             <Card.Body>
@@ -170,19 +271,24 @@ const IndiaStats = () => {
                                   Total: {numberWithCommas(vaccination.today)}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Dose 1: {numberWithCommas(vaccination.today_dose_one)}
+                                  Dose 1:{" "}
+                                  {numberWithCommas(vaccination.today_dose_one)}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Dose 2: {numberWithCommas(vaccination.today_dose_two)}
+                                  Dose 2:{" "}
+                                  {numberWithCommas(vaccination.today_dose_two)}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Female: {numberWithCommas(vaccination.today_female)}
+                                  Female:{" "}
+                                  {numberWithCommas(vaccination.today_female)}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Male: {numberWithCommas(vaccination.today_male)}
+                                  Male:{" "}
+                                  {numberWithCommas(vaccination.today_male)}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Others: {numberWithCommas(vaccination.today_others)}
+                                  Others:{" "}
+                                  {numberWithCommas(vaccination.today_others)}
                                 </ListGroup.Item>
                               </ListGroup>
                             </Card.Body>
@@ -209,8 +315,12 @@ const IndiaStats = () => {
                             <tr>
                               <td>{stateData.state_name}</td>
                               <td>{numberWithCommas(stateData.total)}</td>
-                              <td>{numberWithCommas(stateData.partial_vaccinated)}</td>
-                              <td>{numberWithCommas(stateData.totally_vaccinated)}</td>
+                              <td>
+                                {numberWithCommas(stateData.partial_vaccinated)}
+                              </td>
+                              <td>
+                                {numberWithCommas(stateData.totally_vaccinated)}
+                              </td>
                               <td>{numberWithCommas(stateData.today)}</td>
                             </tr>
                           ))}
