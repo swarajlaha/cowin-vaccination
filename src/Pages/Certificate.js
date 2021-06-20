@@ -9,16 +9,16 @@ import {
   Button,
   Alert
 } from "react-bootstrap";
-import OtpBox from "../components/otpBox";
+import DownloadCert from "../components/downloadCert";
 
 const Certificate = () => {
   return (
     <>
-      <Container className="mt-5 pt-5">
+      <Container className="mt-3 pt-5">
         <Row className="mt-5 pt-5">
           <Col></Col>
           <Col xs={5}>
-            <OtpBox />
+            <DownloadCert />
           </Col>
           <Col></Col>
         </Row>
