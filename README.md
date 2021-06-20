@@ -24,7 +24,16 @@ A web app created using React JS, to check the availabilty of vaccines in variou
 6. Click on each of the boxes, like, _Sites, Registrations_ to view relevant data.
 ![stats2](https://user-images.githubusercontent.com/26769575/122637940-dea47800-d10e-11eb-9d91-bde1f308d597.JPG)
 
-7. You can visit CoWIN portal by clicking on _CoWIN_ hyperlink, in the Navbar.
+7. **_NEW FEATURE_**: To download vaccine certificates, go to _Certificate_ in the Navbar.
+![cert1](https://user-images.githubusercontent.com/26769575/122666282-01e02d80-d1ca-11eb-9797-a2b3e35a2aa0.JPG)
+
+8. Enter your Registered Mobile No., and click _Send OTP_. 
+![cert2](https://user-images.githubusercontent.com/26769575/122666365-5e434d00-d1ca-11eb-9d2f-cd97e49105a6.JPG)
+
+9. Submit the OTP received on your phone. Once OTP is verified successfully, enter the _Beneficiary Reference ID_ for which you wish to download certificate and click _Download Certificate_. If the Beneficiary is registered to the mobile no., then the certificate would be downloaded.
+![cert4](https://user-images.githubusercontent.com/26769575/122666427-baa66c80-d1ca-11eb-80cc-2cf073a635d3.JPG)
+
+10. Please visit CoWIN portal by clicking on _CoWIN_ hyperlink, in the Navbar.
 
 ## API Reference
 
