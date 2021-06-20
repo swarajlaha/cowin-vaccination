@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import MobileNoCard from "./mobileNoCard";
 import OtpBox from "./otpBox";
-import { Card, InputGroup, FormControl, Button, Alert } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import RefCard from "./refCard";
 import AlertBox from "./alertBox";
 
@@ -86,7 +86,7 @@ const DownloadCert = () => {
         { responseType: "blob" }
       )
       .then((res) => {
-        setAlertCode("3")
+        setAlertCode("3");
         console.log("referenceId", referenceId);
         console.log("success", res);
         const file = new Blob([res.data], { type: "application/pdf" });
@@ -98,7 +98,7 @@ const DownloadCert = () => {
       })
       .catch((err) => {
         console.log(err);
-        setAlertCode("6")
+        setAlertCode("6");
       });
   };
 
@@ -129,12 +129,6 @@ const DownloadCert = () => {
               certDownloadHandler={certDownloadHandler}
             />
           )}
-          {/* {otpToken && <Alert variant="success">Verified!</Alert>}
-          {errCode && (
-            <Alert variant="danger">
-              Mobile no. is not registered or invalid OTP
-            </Alert>
-          )} */}
         </Card.Body>
       </Card>
     </>

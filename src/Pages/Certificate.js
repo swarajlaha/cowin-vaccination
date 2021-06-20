@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  InputGroup,
-  FormControl,
-  Button,
-  Alert
-} from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import DownloadCert from "../components/downloadCert";
 
 const Certificate = () => {

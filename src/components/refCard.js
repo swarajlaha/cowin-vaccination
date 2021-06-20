@@ -1,8 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
-import MobileNoCard from "./mobileNoCard";
-import OtpBox from "./otpBox";
-import { Card, InputGroup, FormControl, Button, Alert } from "react-bootstrap";
+import React from "react";
+import { InputGroup, FormControl, Button, Alert } from "react-bootstrap";
 
 const RefCard = (props) => {
   return (

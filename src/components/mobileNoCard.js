@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Card, InputGroup, FormControl, Button, Alert } from "react-bootstrap";
+import React from "react";
+import { InputGroup, FormControl, Button } from "react-bootstrap";
 
 const MobileNoCard = (props) => {
   return (

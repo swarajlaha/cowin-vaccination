@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { Card, InputGroup, FormControl, Button, Alert } from "react-bootstrap";
+import React from "react";
+import { InputGroup, FormControl, Button } from "react-bootstrap";
 
 const OtpBox = (props) => {
   return (
