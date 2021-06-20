@@ -1,23 +1,23 @@
 import React from "react";
-import { InputGroup, FormControl, Button } from "react-bootstrap";
+import { InputGroup, FormControl, Button, Alert } from "react-bootstrap";
 
-const OtpBox = (props) => {
+const RefCard = (props) => {
   return (
     <>
       <div className="pt-4">
         <InputGroup className="mb-3">
           <InputGroup.Prepend></InputGroup.Prepend>
           <FormControl
-            placeholder={props.sentOtp}
+            placeholder={props.referenceId}
             aria-label="otp"
-            onChange={(e) => props.otpChangeHandler(e)}
+            onChange={(e) => props.refIdChangeHandler(e)}
           />
           <InputGroup.Append>
             <Button
               variant="outline-secondary"
-              onClick={props.confirmOtpHandler}
+              onClick={props.certDownloadHandler}
             >
-              Submit
+              Download
             </Button>
           </InputGroup.Append>
         </InputGroup>
@@ -26,4 +26,4 @@ const OtpBox = (props) => {
   );
 };
 
-export default OtpBox;
+export default RefCard;
