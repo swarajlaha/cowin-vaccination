@@ -27,12 +27,12 @@ const ShowDistrictCode = () => {
 
   return (
     <>
-      <Container className="pl-0">
+      <Container className="pl-0 pr-0">
         <Row>
-          <Col sm={11} className="ml-0 pl-0">
+          <Col sm={11} className="ml-0 pl-0 pr-0">
             <MessageBox distId={distId} />
           </Col>
-          <Col sm={1} className="mt-5">
+          <Col sm={1} className="mt-3 ml-0">
             <DropdownSelect distClickHandler={distClickHandler} distName={distName} districts={districts}/>
           </Col>
         </Row>

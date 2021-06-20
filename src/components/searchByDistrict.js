@@ -30,8 +30,11 @@ const SearchByDistrict = (distId) => {
 
   return (
     <>
-      <div className="mt-5" style={{ height: "auto", maxHeight: "650px", overflowX: "hidden" }}>
-        <Table striped bordered hover >
+      <div
+        className="mt-3"
+        style={{ height: "auto", maxHeight: "685px", overflowX: "auto" }}
+      >
+        <Table striped bordered hover>
           <thead>
             <tr>
               <th
