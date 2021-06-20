@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { RiArrowUpSLine, RiArrowDownSLine } from 'react-icons/ri';
 import {
   Container,
   Row,
@@ -15,6 +16,7 @@ const IndiaStats = () => {
   const [registration, setRegistration] = useState([]);
   const [vaccination, setVaccination] = useState([]);
   const [statesData, setStatesData] = useState([]);
+  const [accordionState, setAccordionState] = useState(false);
 
   useEffect(() => {
     axios
@@ -44,8 +46,8 @@ const IndiaStats = () => {
           <div
             style={{ height: "auto", maxHeight: "650px", overflowX: "hidden" }}
           >
-            <Accordion.Toggle as={Card.Header} variant="link" eventKey="1">
-              INDIA
+            <Accordion.Toggle as={Card.Header} variant="link" eventKey="1" onClick={() => {setAccordionState(!accordionState)}}>
+              INDIA {accordionState ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="1">
               <Card.Body>
