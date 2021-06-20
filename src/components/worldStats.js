@@ -29,7 +29,7 @@ const WorldStats = () => {
   return (
     <>
       <Card className="mt-5">
-        <Card.Header>WORLD</Card.Header>
+        <Card.Header><b>WORLD</b></Card.Header>
         <ListGroup variant="flush">
           <ListGroup.Item>
             Confirmed Cases: {confCases}

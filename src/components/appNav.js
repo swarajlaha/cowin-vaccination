@@ -4,7 +4,7 @@ import { Navbar, Nav } from "react-bootstrap";
 const AppNav = () => {
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" variant="dark" className="ml-3 mr-3">
         <Navbar.Brand href="/" className="ml-5">COWIN VACCINATION</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/">Availability</Nav.Link>

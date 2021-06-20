@@ -47,7 +47,7 @@ const IndiaStats = () => {
             style={{ height: "auto", maxHeight: "650px", overflowX: "hidden" }}
           >
             <Accordion.Toggle as={Card.Header} variant="link" eventKey="1" onClick={() => {setAccordionState(!accordionState)}}>
-              INDIA {accordionState ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
+              <b>INDIA {accordionState ? <RiArrowUpSLine /> : <RiArrowDownSLine />}</b>
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="1">
               <Card.Body>
