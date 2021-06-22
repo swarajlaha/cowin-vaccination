@@ -32,10 +32,10 @@ const SearchByDistrict = (distId) => {
     <>
       <div
         className="mt-3"
-        style={{ height: "auto", maxHeight: "685px", overflowX: "auto" }}
+        style={{ height: "auto", maxHeight: "685px", overflowX: "auto", boxShadow: "5px 5px 8px #888888" }}
       >
         <Table striped bordered hover>
-          <thead>
+          <thead style={{boxShadow: "5px 5px 8px #888888"}}>
             <tr>
               <th
                 style={{
@@ -64,7 +64,7 @@ const SearchByDistrict = (distId) => {
           <tbody>
             {centers.map((center) =>
               center.sessions.some((sess) => sess.available_capacity) ? (
-                <tr>
+                <tr style={{boxShadow: "2px 3px 5px #888888"}}>
                   <td className="pb-0 pr-0">
                     <b>{center.name}&nbsp;</b>
                     {center.fee_type === "Paid" ? (

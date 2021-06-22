@@ -16,6 +16,7 @@ const RefCard = (props) => {
             <Button
               variant="outline-secondary"
               onClick={props.certDownloadHandler}
+              style={{boxShadow: "2px 3px 5px #888888"}}
             >
               Download
             </Button>

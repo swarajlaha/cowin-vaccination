@@ -14,11 +14,11 @@ const DropdownSelect = (props) => {
           backgroundColor: "white",
         }}
       >
-        <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
+        <Dropdown.Toggle variant="outline-success" id="dropdown-basic" style={{boxShadow: "5px 5px 8px #888888"}}>
           <b>{props.distName}</b>
         </Dropdown.Toggle>
         <Dropdown.Menu
-          style={{ height: "auto", maxHeight: "645px", overflowX: "hidden" }}
+          style={{ height: "auto", maxHeight: "645px", overflowX: "hidden", boxShadow: "5px 5px 8px #888888" }}
         >
           {props.districts.map((district) => (
             <Dropdown.Item onClick={() => props.distClickHandler(district)}>
