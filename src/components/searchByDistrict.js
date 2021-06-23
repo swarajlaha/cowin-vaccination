@@ -3,6 +3,7 @@ import axios from "axios";
 import { Table, Badge } from "react-bootstrap";
 import VaccineInfo from "./vaccineInfo";
 import moment from "moment";
+import "../styles/style.css";
 
 const SearchByDistrict = (distId) => {
   const [centers, setCenters] = useState([]);
@@ -31,8 +32,8 @@ const SearchByDistrict = (distId) => {
   return (
     <>
       <div
-        className="mt-3"
-        style={{ height: "auto", maxHeight: "685px", overflowX: "auto", boxShadow: "5px 5px 8px #888888" }}
+        className="mt-3 scrollbarstyle style-2"
+        style={{ height: "auto", maxHeight: "685px", overflowX: "auto" }}
       >
         <Table striped bordered hover>
           <thead style={{boxShadow: "5px 5px 8px #888888"}}>

@@ -51,6 +51,7 @@ const IndiaStats = () => {
       <Accordion defaultActiveKey="0">
         <Card className="ml-5 mr-5 mt-5" style={{boxShadow: "2px 3px 5px #888888"}}>
           <div
+            className="scrollbarstyle style-2"
             style={{ height: "auto", maxHeight: "650px", overflowX: "hidden" }}
           >
             <Accordion.Toggle
