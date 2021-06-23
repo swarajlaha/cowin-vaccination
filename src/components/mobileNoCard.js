@@ -15,7 +15,7 @@ const MobileNoCard = (props) => {
             onChange={(e) => props.mobileNoChangeHandler(e)}
           />
           <InputGroup.Append>
-            <Button variant="outline-secondary" onClick={props.sendOtpHandler}>
+            <Button variant="outline-secondary" onClick={props.sendOtpHandler} style={{boxShadow: "2px 3px 5px #888888"}}>
               Send OTP
             </Button>
           </InputGroup.Append>

@@ -106,8 +106,8 @@ const DownloadCert = () => {
   return (
     <>
       <AlertBox alertCode={alertCode} mobileNo={mobileNo} />
-      <Card>
-        <Card.Header>
+      <Card style={{boxShadow: "2px 3px 5px #888888"}}>
+        <Card.Header style={{boxShadow: "2px 3px 5px #888888"}}>
           <b>Download Certificate</b>
           <OverlayTrigger
             placement="right"

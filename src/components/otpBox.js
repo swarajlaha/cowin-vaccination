@@ -16,6 +16,7 @@ const OtpBox = (props) => {
             <Button
               variant="outline-secondary"
               onClick={props.confirmOtpHandler}
+              style={{boxShadow: "2px 3px 5px #888888"}}
             >
               Submit
             </Button>

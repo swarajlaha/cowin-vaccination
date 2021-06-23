@@ -49,8 +49,9 @@ const IndiaStats = () => {
   return (
     <>
       <Accordion defaultActiveKey="0">
-        <Card className="ml-5 mr-5 mt-5">
+        <Card className="ml-5 mr-5 mt-5" style={{boxShadow: "2px 3px 5px #888888"}}>
           <div
+            className="scrollbarstyle style-2"
             style={{ height: "auto", maxHeight: "650px", overflowX: "hidden" }}
           >
             <Accordion.Toggle
@@ -72,7 +73,7 @@ const IndiaStats = () => {
                   <Row>
                     <Col>
                       <Accordion defaultActiveKey="0">
-                        <Card>
+                        <Card style={{boxShadow: "2px 3px 5px #888888"}}>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Sites
                             <OverlayTrigger
@@ -112,7 +113,7 @@ const IndiaStats = () => {
                     </Col>
                     <Col>
                       <Accordion defaultActiveKey="0">
-                        <Card>
+                        <Card style={{boxShadow: "2px 3px 5px #888888"}}>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Registrations
                             <OverlayTrigger
@@ -156,7 +157,7 @@ const IndiaStats = () => {
                     </Col>
                     <Col>
                       <Accordion defaultActiveKey="0">
-                        <Card>
+                        <Card style={{boxShadow: "2px 3px 5px #888888"}}>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Doses
                             <OverlayTrigger
@@ -203,7 +204,7 @@ const IndiaStats = () => {
                   <Row className="mt-4">
                     <Col>
                       <Accordion defaultActiveKey="0">
-                        <Card>
+                        <Card style={{boxShadow: "2px 3px 5px #888888"}}>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Vaccine Types
                             <OverlayTrigger
@@ -245,7 +246,7 @@ const IndiaStats = () => {
                     </Col>
                     <Col>
                       <Accordion defaultActiveKey="0">
-                        <Card>
+                        <Card style={{boxShadow: "2px 3px 5px #888888"}}>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Today
                             <OverlayTrigger
@@ -300,8 +301,8 @@ const IndiaStats = () => {
                   </Row>
                   <Row className="mt-4">
                     <Col>
-                      <Table striped bordered hover>
-                        <thead>
+                      <Table striped bordered hover style={{boxShadow: "2px 3px 5px #888888"}}>
+                        <thead style={{boxShadow: "2px 3px 5px #888888"}}>
                           <tr>
                             <th>State</th>
                             <th>Total Vaccinated</th>
