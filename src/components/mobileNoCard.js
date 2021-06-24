@@ -4,7 +4,7 @@ import { InputGroup, FormControl, Button } from "react-bootstrap";
 const MobileNoCard = (props) => {
   return (
     <>
-      <div className="pt-4">
+      <div className="pt-4 zoomeffect">
         <InputGroup className="mb-3">
           <InputGroup.Prepend>
             <InputGroup.Text>+91</InputGroup.Text>

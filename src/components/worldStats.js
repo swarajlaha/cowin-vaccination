@@ -27,7 +27,7 @@ const WorldStats = () => {
 
   return (
     <>
-      <Card className="mt-5" style={{boxShadow: "2px 3px 5px #888888"}}>
+      <Card className="mt-5 slideinanimation zoomeffect" style={{boxShadow: "2px 3px 5px #888888"}}>
         <Card.Header>
           <b>WORLD</b>
         </Card.Header>

@@ -4,7 +4,7 @@ import { InputGroup, FormControl, Button } from "react-bootstrap";
 const OtpBox = (props) => {
   return (
     <>
-      <div className="pt-4">
+      <div className="pt-4 zoomeffect">
         <InputGroup className="mb-3">
           <InputGroup.Prepend></InputGroup.Prepend>
           <FormControl

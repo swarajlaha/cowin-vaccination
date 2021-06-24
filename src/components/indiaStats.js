@@ -48,7 +48,7 @@ const IndiaStats = () => {
 
   return (
     <>
-      <Accordion defaultActiveKey="0">
+      <Accordion defaultActiveKey="0" className="slideinanimation">
         <Card className="ml-5 mr-5 mt-5" style={{boxShadow: "2px 3px 5px #888888"}}>
           <div
             className="scrollbarstyle style-2"
@@ -72,7 +72,7 @@ const IndiaStats = () => {
                 <Container>
                   <Row>
                     <Col>
-                      <Accordion defaultActiveKey="0">
+                      <Accordion className="zoomeffect" defaultActiveKey="0">
                         <Card style={{boxShadow: "2px 3px 5px #888888"}}>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Sites
@@ -112,7 +112,7 @@ const IndiaStats = () => {
                       </Accordion>
                     </Col>
                     <Col>
-                      <Accordion defaultActiveKey="0">
+                      <Accordion className="zoomeffect" defaultActiveKey="0">
                         <Card style={{boxShadow: "2px 3px 5px #888888"}}>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Registrations
@@ -156,7 +156,7 @@ const IndiaStats = () => {
                       </Accordion>
                     </Col>
                     <Col>
-                      <Accordion defaultActiveKey="0">
+                      <Accordion className="zoomeffect" defaultActiveKey="0">
                         <Card style={{boxShadow: "2px 3px 5px #888888"}}>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Doses
@@ -203,7 +203,7 @@ const IndiaStats = () => {
                   </Row>
                   <Row className="mt-4">
                     <Col>
-                      <Accordion defaultActiveKey="0">
+                      <Accordion className="zoomeffect" defaultActiveKey="0">
                         <Card style={{boxShadow: "2px 3px 5px #888888"}}>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Vaccine Types
@@ -245,7 +245,7 @@ const IndiaStats = () => {
                       </Accordion>
                     </Col>
                     <Col>
-                      <Accordion defaultActiveKey="0">
+                      <Accordion className="zoomeffect" defaultActiveKey="0">
                         <Card style={{boxShadow: "2px 3px 5px #888888"}}>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Today
