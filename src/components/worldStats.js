@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Card, ListGroup } from "react-bootstrap";
+import { Card, ListGroup, Badge } from "react-bootstrap";
 
 const WorldStats = () => {
   const [global, setGlobal] = useState([]);
@@ -27,14 +27,14 @@ const WorldStats = () => {
 
   return (
     <>
-      <Card className="mt-5" style={{boxShadow: "2px 3px 5px #888888"}}>
+      <Card className="mt-5 slideinanimation zoomeffect" style={{boxShadow: "2px 3px 5px #888888"}}>
         <Card.Header>
           <b>WORLD</b>
         </Card.Header>
         <ListGroup variant="flush">
-          <ListGroup.Item>Confirmed Cases: {confCases}</ListGroup.Item>
-          <ListGroup.Item>Deaths: {deaths}</ListGroup.Item>
-          <ListGroup.Item>Recovered: {recovered}</ListGroup.Item>
+          <ListGroup.Item><Badge variant="secondary">Confirmed Cases</Badge><Badge variant="light"> {confCases}</Badge></ListGroup.Item>
+          <ListGroup.Item><Badge variant="danger">Deaths</Badge><Badge variant="light"> {deaths}</Badge></ListGroup.Item>
+          <ListGroup.Item><Badge variant="success">Recovered</Badge><Badge variant="light"> {recovered}</Badge></ListGroup.Item>
         </ListGroup>
       </Card>
     </>

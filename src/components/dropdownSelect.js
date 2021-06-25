@@ -14,9 +14,9 @@ const DropdownSelect = (props) => {
           top: "20px",
           backgroundColor: "white",
         }}
-        
+        className="slideinanimation"
       >
-        <Dropdown.Toggle variant="outline-success" id="dropdown-basic" style={{boxShadow: "5px 5px 8px #888888"}}>
+        <Dropdown.Toggle className="zoomeffect" variant="outline-success" id="dropdown-basic" style={{boxShadow: "5px 5px 8px #888888"}}>
           <b>{props.distName}</b>
         </Dropdown.Toggle>
         <Dropdown.Menu
@@ -24,7 +24,7 @@ const DropdownSelect = (props) => {
           style={{ height: "auto", maxHeight: "645px", overflowX: "hidden", boxShadow: "5px 5px 8px #888888" }}
         >
           {props.districts.map((district) => (
-            <Dropdown.Item onClick={() => props.distClickHandler(district)}>
+            <Dropdown.Item className="zoomeffect" onClick={() => props.distClickHandler(district)}>
               {district.district_name}
             </Dropdown.Item>
           ))}

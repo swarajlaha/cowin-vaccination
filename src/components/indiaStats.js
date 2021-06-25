@@ -16,6 +16,7 @@ import {
   OverlayTrigger,
   Tooltip,
   Button,
+  Badge,
 } from "react-bootstrap";
 
 const IndiaStats = () => {
@@ -48,8 +49,11 @@ const IndiaStats = () => {
 
   return (
     <>
-      <Accordion defaultActiveKey="0">
-        <Card className="ml-5 mr-5 mt-5" style={{boxShadow: "2px 3px 5px #888888"}}>
+      <Accordion defaultActiveKey="0" className="slideinanimation">
+        <Card
+          className="ml-5 mr-5 mt-5"
+          style={{ boxShadow: "2px 3px 5px #888888" }}
+        >
           <div
             className="scrollbarstyle style-2"
             style={{ height: "auto", maxHeight: "650px", overflowX: "hidden" }}
@@ -72,8 +76,8 @@ const IndiaStats = () => {
                 <Container>
                   <Row>
                     <Col>
-                      <Accordion defaultActiveKey="0">
-                        <Card style={{boxShadow: "2px 3px 5px #888888"}}>
+                      <Accordion className="zoomeffect" defaultActiveKey="0">
+                        <Card style={{ boxShadow: "2px 3px 5px #888888" }}>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Sites
                             <OverlayTrigger
@@ -97,13 +101,22 @@ const IndiaStats = () => {
                             <Card.Body>
                               <ListGroup variant="flush">
                                 <ListGroup.Item>
-                                  Total: {numberWithCommas(sites.total)}
+                                  Total:{" "}
+                                  <Badge variant="light">
+                                    {numberWithCommas(sites.total)}
+                                  </Badge>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Govt: {numberWithCommas(sites.govt)}
+                                  Govt:{" "}
+                                  <Badge variant="light">
+                                    {numberWithCommas(sites.govt)}
+                                  </Badge>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Pvt: {numberWithCommas(sites.pvt)}
+                                  Pvt:{" "}
+                                  <Badge variant="light">
+                                    {numberWithCommas(sites.pvt)}
+                                  </Badge>
                                 </ListGroup.Item>
                               </ListGroup>
                             </Card.Body>
@@ -112,8 +125,8 @@ const IndiaStats = () => {
                       </Accordion>
                     </Col>
                     <Col>
-                      <Accordion defaultActiveKey="0">
-                        <Card style={{boxShadow: "2px 3px 5px #888888"}}>
+                      <Accordion className="zoomeffect" defaultActiveKey="0">
+                        <Card style={{ boxShadow: "2px 3px 5px #888888" }}>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Registrations
                             <OverlayTrigger
@@ -123,7 +136,8 @@ const IndiaStats = () => {
                                   id={`tooltip-right`}
                                   style={{ opacity: "0.6" }}
                                 >
-                                  Total number of beneficiaries registered till date.
+                                  Total number of beneficiaries registered till
+                                  date.
                                 </Tooltip>
                               }
                             >
@@ -136,18 +150,30 @@ const IndiaStats = () => {
                             <Card.Body>
                               <ListGroup variant="flush">
                                 <ListGroup.Item>
-                                  Age 18+:{" "}
-                                  {numberWithCommas(registration.cit_18_45)}
+                                  Age 18+:
+                                  <Badge variant="light">
+                                    {numberWithCommas(registration.cit_18_45)}
+                                  </Badge>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Age 45+:{" "}
-                                  {numberWithCommas(registration.cit_45_above)}
+                                  Age 45+:
+                                  <Badge variant="light">
+                                    {numberWithCommas(
+                                      registration.cit_45_above
+                                    )}
+                                  </Badge>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Today: {numberWithCommas(registration.today)}
+                                  Today:{" "}
+                                  <Badge variant="light">
+                                    {numberWithCommas(registration.today)}
+                                  </Badge>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Total: {numberWithCommas(registration.total)}
+                                  Total:{" "}
+                                  <Badge variant="light">
+                                    {numberWithCommas(registration.total)}
+                                  </Badge>
                                 </ListGroup.Item>
                               </ListGroup>
                             </Card.Body>
@@ -156,8 +182,8 @@ const IndiaStats = () => {
                       </Accordion>
                     </Col>
                     <Col>
-                      <Accordion defaultActiveKey="0">
-                        <Card style={{boxShadow: "2px 3px 5px #888888"}}>
+                      <Accordion className="zoomeffect" defaultActiveKey="0">
+                        <Card style={{ boxShadow: "2px 3px 5px #888888" }}>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Doses
                             <OverlayTrigger
@@ -180,19 +206,19 @@ const IndiaStats = () => {
                             <Card.Body>
                               <ListGroup variant="flush">
                                 <ListGroup.Item>
-                                  Total Doses:{" "}
-                                  {numberWithCommas(vaccination.total_doses)}
+                                  Total:
+                                  <Badge variant="light">{numberWithCommas(vaccination.total_doses)}</Badge>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Dose1:{" "}
-                                  {numberWithCommas(vaccination.tot_dose_1)}
+                                  Dose1:
+                                  <Badge variant="light">{numberWithCommas(vaccination.tot_dose_1)}</Badge>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Dose2:{" "}
-                                  {numberWithCommas(vaccination.tot_dose_2)}
+                                  Dose2:
+                                  <Badge variant="light">{numberWithCommas(vaccination.tot_dose_2)}</Badge>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Today: {numberWithCommas(vaccination.today)}
+                                  Today: <Badge variant="light">{numberWithCommas(vaccination.today)}</Badge>
                                 </ListGroup.Item>
                               </ListGroup>
                             </Card.Body>
@@ -203,8 +229,8 @@ const IndiaStats = () => {
                   </Row>
                   <Row className="mt-4">
                     <Col>
-                      <Accordion defaultActiveKey="0">
-                        <Card style={{boxShadow: "2px 3px 5px #888888"}}>
+                      <Accordion className="zoomeffect" defaultActiveKey="0">
+                        <Card style={{ boxShadow: "2px 3px 5px #888888" }}>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Vaccine Types
                             <OverlayTrigger
@@ -214,7 +240,8 @@ const IndiaStats = () => {
                                   id={`tooltip-right`}
                                   style={{ opacity: "0.6" }}
                                 >
-                                  No. of doses of each type of vaccines administered till date.
+                                  No. of doses of each type of vaccines
+                                  administered till date.
                                 </Tooltip>
                               }
                             >
@@ -227,16 +254,16 @@ const IndiaStats = () => {
                             <Card.Body>
                               <ListGroup variant="flush">
                                 <ListGroup.Item>
-                                  Covaxin:{" "}
-                                  {numberWithCommas(vaccination.covaxin)}
+                                  Covaxin:
+                                  <Badge variant="light">{numberWithCommas(vaccination.covaxin)}</Badge>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Covishield:{" "}
-                                  {numberWithCommas(vaccination.covishield)}
+                                  Covishield:
+                                  <Badge variant="light">{numberWithCommas(vaccination.covishield)}</Badge>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Sputnik:{" "}
-                                  {numberWithCommas(vaccination.sputnik)}
+                                  Sputnik:
+                                  <Badge variant="light">{numberWithCommas(vaccination.sputnik)}</Badge>
                                 </ListGroup.Item>
                               </ListGroup>
                             </Card.Body>
@@ -245,8 +272,8 @@ const IndiaStats = () => {
                       </Accordion>
                     </Col>
                     <Col>
-                      <Accordion defaultActiveKey="0">
-                        <Card style={{boxShadow: "2px 3px 5px #888888"}}>
+                      <Accordion className="zoomeffect" defaultActiveKey="0">
+                        <Card style={{ boxShadow: "2px 3px 5px #888888" }}>
                           <Accordion.Toggle as={Card.Header} eventKey="1">
                             Today
                             <OverlayTrigger
@@ -269,27 +296,27 @@ const IndiaStats = () => {
                             <Card.Body>
                               <ListGroup variant="flush">
                                 <ListGroup.Item>
-                                  Total: {numberWithCommas(vaccination.today)}
+                                  Total: <Badge variant="light">{numberWithCommas(vaccination.today)}</Badge>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Dose 1:{" "}
-                                  {numberWithCommas(vaccination.today_dose_one)}
+                                  Dose 1:
+                                  <Badge variant="light">{numberWithCommas(vaccination.today_dose_one)}</Badge>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Dose 2:{" "}
-                                  {numberWithCommas(vaccination.today_dose_two)}
+                                  Dose 2:
+                                  <Badge variant="light">{numberWithCommas(vaccination.today_dose_two)}</Badge>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Female:{" "}
-                                  {numberWithCommas(vaccination.today_female)}
+                                  Female:
+                                  <Badge variant="light">{numberWithCommas(vaccination.today_female)}</Badge>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Male:{" "}
-                                  {numberWithCommas(vaccination.today_male)}
+                                  Male:
+                                  <Badge variant="light">{numberWithCommas(vaccination.today_male)}</Badge>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                  Others:{" "}
-                                  {numberWithCommas(vaccination.today_others)}
+                                  Others:
+                                  <Badge variant="light">{numberWithCommas(vaccination.today_others)}</Badge>
                                 </ListGroup.Item>
                               </ListGroup>
                             </Card.Body>
@@ -301,8 +328,12 @@ const IndiaStats = () => {
                   </Row>
                   <Row className="mt-4">
                     <Col>
-                      <Table striped bordered hover style={{boxShadow: "2px 3px 5px #888888"}}>
-                        <thead style={{boxShadow: "2px 3px 5px #888888"}}>
+                      <Table
+                        bordered
+                        hover
+                        style={{ boxShadow: "2px 3px 5px #888888" }}
+                      >
+                        <thead style={{ boxShadow: "2px 3px 5px #888888" }}>
                           <tr>
                             <th>State</th>
                             <th>Total Vaccinated</th>
@@ -315,14 +346,30 @@ const IndiaStats = () => {
                           {statesData.map((stateData) => (
                             <tr>
                               <td>{stateData.state_name}</td>
-                              <td>{numberWithCommas(stateData.total)}</td>
                               <td>
-                                {numberWithCommas(stateData.partial_vaccinated)}
+                                <Badge variant="light">
+                                  {numberWithCommas(stateData.total)}
+                                </Badge>
                               </td>
                               <td>
-                                {numberWithCommas(stateData.totally_vaccinated)}
+                                <Badge variant="light">
+                                  {numberWithCommas(
+                                    stateData.partial_vaccinated
+                                  )}
+                                </Badge>
                               </td>
-                              <td>{numberWithCommas(stateData.today)}</td>
+                              <td>
+                                <Badge variant="light">
+                                  {numberWithCommas(
+                                    stateData.totally_vaccinated
+                                  )}
+                                </Badge>
+                              </td>
+                              <td>
+                                <Badge variant="light">
+                                  {numberWithCommas(stateData.today)}
+                                </Badge>
+                              </td>
                             </tr>
                           ))}
                         </tbody>

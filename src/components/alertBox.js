@@ -3,7 +3,7 @@ import { Alert } from "react-bootstrap";
 
 const AlertBox = (props) => {
   return (
-    <div style={{boxShadow: "2px 3px 5px #888888"}}>
+    <div className="slideinanimation" style={{boxShadow: "2px 3px 5px #888888"}}>
       {props.alertCode === "1" ? (
         <Alert variant="success">
           OTP sent to <i>{props.mobileNo}</i>. Valid for 3 minutes.
