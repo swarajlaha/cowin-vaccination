@@ -2,7 +2,7 @@ import React from "react";
 import { Dropdown } from "react-bootstrap";
 import "../styles/style.css";
 
-const DropdownSelect = (props) => {
+const DropdownSelectStates = (props) => {
   return (
     <>
       <Dropdown
@@ -14,18 +14,18 @@ const DropdownSelect = (props) => {
           top: "20px",
           backgroundColor: "white",
         }}
-        className="slideinanimation"
+        className="slideinanimation mb-3"
       >
         <Dropdown.Toggle className="zoomeffect" variant="outline-success" id="dropdown-basic" style={{boxShadow: "5px 5px 8px #888888"}}>
-          <b>{props.distName}</b>
+          <b>{props.stateName}</b>
         </Dropdown.Toggle>
         <Dropdown.Menu
           className="scrollbarstyle style-2"
           style={{ height: "auto", maxHeight: "645px", overflowX: "hidden", boxShadow: "5px 5px 8px #888888" }}
         >
-          {props.districts.map((district) => (
-            <Dropdown.Item className="zoomeffect" onClick={() => props.distClickHandler(district)}>
-              {district.district_name}
+          {props.states.map((state) => (
+            <Dropdown.Item className="zoomeffect" onClick={() => props.stateClickHandler(state)}>
+              {state.state_name}
             </Dropdown.Item>
           ))}
         </Dropdown.Menu>
@@ -34,4 +34,4 @@ const DropdownSelect = (props) => {
   );
 };
 
-export default DropdownSelect;
+export default DropdownSelectStates;
