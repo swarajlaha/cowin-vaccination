@@ -14,7 +14,7 @@ const MessageBox = (props) => {
               <SearchByDistrict distId={props.distId} />
             ) : (
               <Alert variant="success" className="mt-3 zoomeffect" style={{boxShadow: "5px 5px 8px #888888", textAlign: "center"}}>
-                Namaste! Please select a District to check vaccine Availability&nbsp;or view the&nbsp;
+                Namaste! Please select State and District to check vaccine Availability&nbsp;or view the&nbsp;
                 <Alert.Link href="/statistics">Covid Statistics</Alert.Link>.
               </Alert>
             )}
