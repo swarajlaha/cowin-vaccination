@@ -1,6 +1,6 @@
 # COWIN VACCINATION
 
-A web app created using React JS, to check the availabilty of vaccines in various districts of Odisha, view covid related statistics in India and the world and download vaccine certificate.
+A Web App to check the availabilty of vaccines in all states of India, view covid related statistics of India and the world and download vaccine certificate.
 
 ## Getting Started
 
@@ -11,18 +11,18 @@ A web app created using React JS, to check the availabilty of vaccines in variou
 ## Working of Cowin Vaccination
 
 1. When the app opens on your localhost, the below landing page is shown.
-![landing](https://user-images.githubusercontent.com/26769575/122637606-4659c380-d10d-11eb-91ab-16aa6de3e862.JPG)
+![s1](https://user-images.githubusercontent.com/26769575/124347281-6c995c00-dc01-11eb-83bb-14aafc3e28e0.JPG)
 
-2. Either select an option for your required district from the adjacent dropdown to check availabilty of vaccines or click on _Covid Statistics_ to view info related to covid.
-3. When a district is selected from the dropdown, a table showing availability of vaccines is shown in various centers of that district.
-![checkavail](https://user-images.githubusercontent.com/26769575/122637785-2676cf80-d10e-11eb-9313-d4e6ae040254.JPG)
+2. Either select an option for your required state and then district from the adjacent dropdown to check availabilty of vaccines or click on _Covid Statistics_ to view info related to covid.
+3. When a state, district is selected from the dropdowns, a table showing availability of vaccines is shown in various centers of that district.
+![s2](https://user-images.githubusercontent.com/26769575/124347316-b124f780-dc01-11eb-8379-353569f5964d.JPG)
 
 4. To view statistics related to covid, click on _Statistics_ in the Navigation bar.
 5. It shows various data of the world and on clicking on _India_, various data is shown. Scroll to see data of various states of India.
-![stats](https://user-images.githubusercontent.com/26769575/122637867-88373980-d10e-11eb-9a9f-965a59a42869.JPG)
+![s3](https://user-images.githubusercontent.com/26769575/124347359-ed585800-dc01-11eb-81b7-fb707cadc42f.JPG)
 
 6. Click on each of the boxes, like, _Sites, Registrations_ to view relevant data.
-![stats2](https://user-images.githubusercontent.com/26769575/122637940-dea47800-d10e-11eb-9d91-bde1f308d597.JPG)
+![s4](https://user-images.githubusercontent.com/26769575/124347384-1d076000-dc02-11eb-85b3-472d12c758e3.JPG)
 
 7. **_NEW FEATURE_**: To download vaccine certificates, go to _Certificate_ in the Navbar.
 ![cert1](https://user-images.githubusercontent.com/26769575/122666282-01e02d80-d1ca-11eb-9797-a2b3e35a2aa0.JPG)
