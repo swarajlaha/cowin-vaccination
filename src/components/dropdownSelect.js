@@ -14,7 +14,7 @@ const DropdownSelect = (props) => {
           top: "20px",
           backgroundColor: "white",
         }}
-        className="slideinanimation"
+        className="slideinanimation mb-3"
       >
         <Dropdown.Toggle className="zoomeffect" variant="outline-success" id="dropdown-basic" style={{boxShadow: "5px 5px 8px #888888"}}>
           <b>{props.distName}</b>

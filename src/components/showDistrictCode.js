@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Form, Badge } from 'react-bootstrap'
 import MessageBox from './messageBox'
 import DropdownSelect from './dropdownSelect'
 import DropdownSelectStates from './dropdownSelectStates'
@@ -72,6 +72,46 @@ const ShowDistrictCode = () => {
                 districts={districts}
               />
             )}
+            <Form>
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check
+                  type="checkbox"
+                  label={
+                    <Badge pill variant="danger">
+                      18+
+                    </Badge>
+                  }
+                />
+                <Form.Check
+                  type="checkbox"
+                  label={
+                    <Badge pill variant="info">
+                      45+
+                    </Badge>
+                  }
+                />
+                <Form.Check
+                  type="checkbox"
+                  label={<Badge variant="success">Covishield</Badge>}
+                />
+                <Form.Check
+                  type="checkbox"
+                  label={<Badge variant="primary">Covaxin</Badge>}
+                />
+                <Form.Check
+                  type="checkbox"
+                  label={<Badge variant="warning">Sputnik</Badge>}
+                />
+                <Form.Check
+                  type="checkbox"
+                  label={<Badge variant="light">Free</Badge>}
+                />
+                <Form.Check
+                  type="checkbox"
+                  label={<Badge variant="danger">Paid</Badge>}
+                />
+              </Form.Group>
+            </Form>
           </Col>
         </Row>
       </Container>
